@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Garage Auxerre 89{% endblock %}
+
+{% block body %}
+
+<div class="container-fluide">
+    <div class="seq" id="sequence">
+        <div class="seq-screen">
+            <ul class="seq-canvas">
+                <li class="seq-step1" id="step1">
+                    <div class="seq-content">
+                        <h2 class="seq-title" data-seq>Titre: </h2>
+                        <h3 class="seq-subtitle" data-seq>Contenu: </h3>
+                        <a class="seq-button" href="#" tabindex="-1" target="_blank">En savoir + →</a>
+                    </div>
+                </li>
+                <li class="seq-step2" id="step2">
+                    <div class="seq-content">
+                        <h2 class="seq-title" data-seq>Titre: </h2>
+                            <h3 class="seq-subtitle" data-seq>Contenu:</h3>
+                        <a class="seq-button" href="#" tabindex="-1" target="_blank">En savoir + →</a>
+                    </div>
+                </li>
+                <li class="seq-step3" id="step3">
+                    <div class="seq-content">
+                        <h2 class="seq-title" data-seq>Titre:</h2>
+                        <h3 class="seq-subtitle" data-seq>Contenu:</h3>
+                        <a class="seq-button" href="#" tabindex="-1" target="_blank">En savoir + →</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <ul aria-label="Pagination" class="seq-pagination" rel="sequence" role="navigation">
+        </ul>
+    </div>
+</div>
+
+
+{% endblock %}

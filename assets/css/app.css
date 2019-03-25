@@ -1,0 +1,90 @@
+/* Heahder */
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
+body {
+    font-family: 'Abel', sans-serif;
+}
+/* Logo + Nav  */
+.navbar-brand{
+    font-size: 23px;
+    color: white;
+}
+
+.navbar-item{
+    border-bottom: 0px solid transparent;
+}
+/* ./Logo */
+
+/* Boutton header UP */
+
+.list li{
+    display: inline-block;
+    font-size: 20px;
+}
+
+.lists li{
+    font-size:25px;
+}
+
+.navbar-end a{
+    font-size:20px;
+    cursor: pointer;
+}
+
+.navbar-item a{
+    background-color:transparent;
+    border: 0;
+}
+
+.lists-buttons a:hover{
+    text-decoration: inherit;
+}
+
+.button_up ul{
+    float:right;
+}
+
+.lists-buttons li::before{
+    content: "‹";
+}
+
+#assistance span{
+    text-decoration: inherit;
+}
+
+#assistance a:hover{
+    border-bottom:0px;
+    text-decoration: inherit;
+}
+
+#button-li .lists-buttons::before{
+    content: "";
+    
+}
+
+.navbar-item span {
+    background-color: transparent;
+}
+
+.navbar-end a{
+    text-align:right;
+}
+
+/* ./ HeaderUP*/
+
+
+
+/* Media Query */
+@media only screen and (max-width: 560px) {
+    #team{
+        display:none;
+    }
+    .seq{
+        height: 250px;
+    }
+    .lists-buttons li{
+        float: right;
+    }
+}
+
+/* ./ Media Query */
