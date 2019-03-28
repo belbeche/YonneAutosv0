@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NosAnnonces{% endblock %}
+
+{% block body %}
+    <h1>NosAnnonces</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ nos_annonce.id }}</td>
+            </tr>
+            <tr>
+                <th>Annee</th>
+                <td>{{ nos_annonce.annee }}</td>
+            </tr>
+            <tr>
+                <th>Modele</th>
+                <td>{{ nos_annonce.modele }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ nos_annonce.marque }}</td>
+            </tr>
+            <tr>
+                <th>Ct</th>
+                <td>{{ nos_annonce.ct }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ nos_annonce.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ nos_annonce.description }}</td>
+            </tr>
+            <tr>
+                <th>Img</th>
+                <td>{{ nos_annonce.img }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('nos_annonces_index') }}">back to list</a>
+
+    <a href="{{ path('nos_annonces_edit', {'id': nos_annonce.id}) }}">edit</a>
+
+    {{ include('nos_annonces/_delete_form.html.twig') }}
+{% endblock %}

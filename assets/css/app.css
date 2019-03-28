@@ -6,13 +6,14 @@ body {
 }
 /* Logo + Nav  */
 .navbar-brand{
-    font-size: 23px;
+    font-size: 45px;
     color: white;
 }
 
-.navbar-item{
-    border-bottom: 0px solid transparent;
+.navbar-nav li{
+    font-size: 35px;
 }
+
 /* ./Logo */
 
 /* Boutton header UP */
@@ -70,12 +71,202 @@ body {
     text-align:right;
 }
 
+.lists-menu div{
+    width:100%;
+    height: 100%;
+    /* background-color: #1a1a1a; */
+    justify-content: center;
+    font-size: 45px;
+}
+
+.level-item a {
+    color: black;
+}
+
+.level-item a:hover{
+    background-color: transparent;
+    border-bottom: 1px solid black;
+}
+
+.level-item a:hover{
+    text-decoration:none;
+}
 /* ./ HeaderUP*/
 
+/* Body */
 
+div .carousel{
+    background-color:black;
+    width:100%;
+    height:100%;
+}
+
+.carousel{
+    background-color:black;
+    width: 100%;
+    height: 40em;
+}
+
+#titre_entreprise div{
+    text-align: center;
+}
+
+.head-title > h4{
+    font-size: 55px;
+    color:white;
+}
+
+#titre_entreprise p{
+    text-align:center;
+}
+
+.description-entreprise{
+    color:white;
+    font-size: 35px;
+}
+
+.time-block span{ 
+    display: inline-block;
+    color:white;
+}
+
+.time{
+    height: 100%;
+    width: 100%;
+    border-radius: 1px solid;
+    color: black;
+}
+
+.time label:hover select{
+    background-color: #1a82ae;
+    border-color: #187aa3;
+    border: #fff;
+    opacity: 1px;
+} 
+
+.label_title{
+    color: black;
+}
+
+#packs a{
+    text-align:right;
+}
+
+/* ./Body */
+
+
+/* Nos services */
+
+.nos-pack div{
+    border: 1px solid lightgray;
+}
+
+.nos-pack div:hover{
+    box-shadow:0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.titre-up{
+    margin-top: 5px;
+}
+
+.basic{
+    height: 20em;
+}
+.confort{
+    height: 20em;
+}
+
+.Assistance{
+    height: 20em;
+}
+
+.prix{
+    margin-top: 10px;
+    border: 1px solid #dee2e6;
+    font-size: 30px;
+}
+/* /.Nos Services*/
+
+
+/* Nos Annonces */
+
+.img_annonces{
+    border-radius: 10px;
+}
+
+#description span{
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+#container_annonce div{
+    width: 45%;
+    display: inline-block;
+}
+
+.logo-info div{
+    display: inline-block;
+    width: 30%;
+}
+
+/* Nos Annonces */
+
+.container-all div{
+    width: 30%;
+    display:inline-block;
+}
+
+.annonces_img{
+    background: url('images/annonces/car1.jpg') no-repeat;
+    background-size: 70% cover;
+}
+
+.annonces_img div{
+    border-radius: 1px;
+}
+
+.container-all div {
+    display: inline-block;
+    width: 20%;
+    border-radius: 10px;
+}
+
+.titre_annonces{
+    font-size: 20px;
+}
+
+.description_annonces{
+    font-size: 20px;
+}
+
+.description-line span{
+    display: inline-block;
+}
+
+.description_annonces{
+    display: inline-block;
+}
+
+/* Contact me */
+
+.form-control{
+    height: 150%;
+}
+
+.confirmation{
+    width: 100%;
+    height: 100%;
+    background-color: lightgray;
+}
+
+
+
+/* ./ Contact me */
+
+/* ./ Nos Annonces */
 
 /* Media Query */
-@media only screen and (max-width: 560px) {
+@media only screen and (max-width: 768px) {
     #team{
         display:none;
     }
@@ -85,6 +276,27 @@ body {
     .lists-buttons li{
         float: right;
     }
+    .nos-pack{
+        height: 100%;
+        margin-bottom: 50px;
+    }
+    .histoire_mob{
+        margin-top: 50px;
+    }
+    .adresse_mob{
+        margin-top: 50px;
+    }
+    #nos-pack{
+        margin-bottom: 90em;
+    }
+    .container-all{
+        width: 100%;
+        flex-direction: wrap;
+    }
+}
+
+@media only screen and (max-width: 992){
+
 }
 
 /* ./ Media Query */

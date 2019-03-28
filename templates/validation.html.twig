@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+Formulaire de validation </br>
+
+{{ demande_en_ligne.DemandeEnLigne }}
+
+{{ form_start(contact_user) }}
+{{ form_row(contact_user) }}
+{{ form_end(contact_user) }}
+
+{% endblock %}

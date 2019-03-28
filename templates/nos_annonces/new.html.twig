@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New NosAnnonces{% endblock %}
+
+{% block body %}
+    <h1>Crée une nouvelle annonce</h1>
+
+    {{ include('nos_annonces/_form.html.twig') }}
+
+    <a href="{{ path('nos_annonces_index') }}">Retour</a>
+{% endblock %}

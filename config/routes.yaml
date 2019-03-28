@@ -1,3 +1,3 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+annonces:
+  path: /index/{id}
+  controller: App\Controller\HomeController::index

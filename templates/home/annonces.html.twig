@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<h1> Affichage des annonces <h1>
+
+{% for annonce in annonces %}
+{{ annonce.titre }}
+{{ annonce.description }}
+{{ annonce.annee }}
+{{ annonce.modele }}
+{{ annonce.marque }}
+{{ annonce.ct }}
+{{ annonce.img }}
+
+{% endfor %}
+
+{% endblock %}

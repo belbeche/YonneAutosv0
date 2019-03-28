@@ -6,9 +6,8 @@
  */
 
 // any CSS you require will output into a single css file (app.css in this case)
-require('../css/hover-min.css')
 require('../css/bulma.min.css')
-require('../css/sequence-theme.basic.css')
+require('../css/sequence-theme.css')
 require('../css/bootstrap.min.css')
 require('../css/bootswatch.css')
 require('../css/app.css')
@@ -17,3 +16,4 @@ require('../css/app.css')
 // const $ = require('jquery');
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1> Faites votre choix </h1>
+<div class="container">
+    <div class="form-group">
+    {{ form_start(contact_me) }}
+    {{ form_row(contact_me) }}
+    {{ form_end(contact_me) }}
+    </div>
+</div>
+{% endblock %}

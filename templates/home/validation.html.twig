@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1 style="text-align:center;"> Merci d'avoir choisis Yonne Autos  </h1>
+
+<h6 class="lead" style="text-align:center;"> Motif de votre demande :  {{ demande_en_ligne.DemandeEnLigne }} </h6>
+<div class="container">
+    <div class="form-group">
+    {{ form_start(contact_user) }}
+    {{ form_row(contact_user) }}
+    {{form_end(contact_user) }}
+    </div>
+</div>
+{% endblock %}

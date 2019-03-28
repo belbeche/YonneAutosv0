@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1 style="text-align:center;">Recapitulatif de vos informations</h1> 
+
+<div class="container confirmation">
+    <div style="text-align:center;">
+        <p class="lead">{{ confirmation_contact.nom}}</p>
+        <p class="lead">{{ confirmation_contact.prenom}}</p>
+        <p class="lead">{{ confirmation_contact.telephone }}</p>
+        <p class="lead">{{ confirmation_contact.message }}</p>
+    </div>
+</div>
+
+{% endblock %}

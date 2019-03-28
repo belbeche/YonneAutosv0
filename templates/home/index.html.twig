@@ -2,39 +2,198 @@
 
 {% block title %}Garage Auxerre 89{% endblock %}
 
+
 {% block body %}
 
-<div class="container-fluide">
-    <div class="seq" id="sequence">
-        <div class="seq-screen">
-            <ul class="seq-canvas">
-                <li class="seq-step1" id="step1">
-                    <div class="seq-content">
-                        <h2 class="seq-title" data-seq>Titre: </h2>
-                        <h3 class="seq-subtitle" data-seq>Contenu: </h3>
-                        <a class="seq-button" href="#" tabindex="-1" target="_blank">En savoir + →</a>
+
+<div class="seq" id="sequence">
+    <div class="seq-bg"></div>
+    <div class="seq-screen">
+        <ul class="seq-canvas">
+            <li class="seq-in seq-valign">
+                <div class="seq-content">
+                    <h2 class="seq-title" data-seq>Test : titre</h2>
+                    <div class="seq-description" data-seq>
+                        <p>Lorem ipsum dolor set amet</p>
+                        <a class="seq-button" href="#">En savoir plus
+                            <span class="seq-next-arrow">&gt;</span>
+                        </a>
                     </div>
-                </li>
-                <li class="seq-step2" id="step2">
-                    <div class="seq-content">
-                        <h2 class="seq-title" data-seq>Titre: </h2>
-                            <h3 class="seq-subtitle" data-seq>Contenu:</h3>
-                        <a class="seq-button" href="#" tabindex="-1" target="_blank">En savoir + →</a>
+                </div>
+            </li>
+            <li class="seq-valign">
+                <div class="seq-content">
+                    <h2 class="seq-title" data-seq>Test : titre</h2>
+                    <div class="seq-description" data-seq>
+                        <p>For sliders, presentations,
+                        <br/>Lorem ipsum dolor set amet</p>
+                        <a class="seq-button" href="#">En savoir plus
+                            <span class="seq-next-arrow">&gt;</span>
+                        </a>
                     </div>
-                </li>
-                <li class="seq-step3" id="step3">
-                    <div class="seq-content">
-                        <h2 class="seq-title" data-seq>Titre:</h2>
-                        <h3 class="seq-subtitle" data-seq>Contenu:</h3>
-                        <a class="seq-button" href="#" tabindex="-1" target="_blank">En savoir + →</a>
+                </div>
+            </li>
+            <li class="seq-valign">
+                <div class="seq-content">
+                    <h2 class="seq-title" data-seq>Test: titre</h2>
+                    <div class="seq-description" data-seq>
+                        <p>All of the JavaScript functionality you need built-in</p>
+                        <a class="seq-button" href="#">En savoir plus
+                            <span class="seq-next-arrow">&gt;</span>
+                        </a>
                     </div>
-                </li>
-            </ul>
-        </div>
-        <ul aria-label="Pagination" class="seq-pagination" rel="sequence" role="navigation">
+                </div>
+            </li>
         </ul>
+    </div>
+    <fieldset aria-controls="sequence" aria-label="Slider buttons" class="seq-nav">
+        <button aria-label="Previous" class="seq-prev" type="button">
+            <span class="seq-prev-arrow">&lt;</span>
+        </button>
+        <ul aria-label="Pagination" class="seq-pagination" role="navigation">
+            <li>
+                <a href="#step1" rel="step1" title="Go to slide 1">1</a>
+            </li>
+            <li>
+                <a href="#step2" rel="step2" title="Go to slide 2">2</a>
+            </li>
+            <li>
+                <a href="#step3" rel="step3" title="Go to slide 3">3</a>
+            </li>
+        </ul>
+        <button aria-label="Next" class="seq-next" type="button">
+            <span class="seq-next-arrow">&gt;</span>
+        </button>
+    </fieldset>
+</div>
+
+<div class="card-header bg-info mb-3" id="titre-entreprise">
+    <div class="card-body" id="titre_entreprise">
+        <div class="head-title">
+            <h4 class="card-title" id="titre-entreprise">Yonne Autos</h4>
+            <p class="card-text description-entreprise">Un professionnalisme sans égales</p>
+            </br>
+        </div>
     </div>
 </div>
 
+
+<div class="card text-white bg-primary mb-3" style="margin-top:-50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 histoire_mob" style="font-size:25px;">
+                <div class="card-body">
+                    <h4 class="card-title">Notre histoire</h4>
+                    <p class="card-text">Le garage Yonne autos a ouvert ses portes en 2017.
+                        Nous mettons un point d'honneur à respecter les méthodes et procédures a suivre. </p>
+                    <p>Nous vous invitons à découvrir plus en détail toutes nos prestations. Nous vendons des véhicules neufs et d'occasion.</p>  
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card border-dark mb-3 adresse_mob" style="font-size:25px;">
+                    <div class="card-header"><i class="fas fa-home">Adresse</i></div>
+                        <div class="card-body">
+                            <h4 class="card-title"> 59 Av charles de gaules, 89000</h4>
+                            <p class="card-text">Telephone : 00.00.00.00.00</p>
+                            <span>{{ form_start(ouverture) }}</span>
+                            <span>{{ form_widget(ouverture) }} </span>
+                            <span>{{ form_end(ouverture) }} </span>
+                            <a href="#nos-pack" class="btn btn-primary" style="margin-top: 10px;text-align:right;"> Découvrir nos packs </a>
+                            <a href="#contact" class="btn btn-info" style="margin-top: 10px;"> Nous contacter </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nos services -->
+<div class="container">
+    <div class="nos-services" style="text-align:center;margin-left:2px;height:50em;" id="nos-pack">
+        <h1 style="text-align:center;margin-top: 50px;">Nos packs </h1></br>
+        <div class="row nos-pack" style="height:35em;">
+            <div class="col-md-4">
+                <h1 class="titre-up"> Simplicité  </h1>
+                <span>Pour une intervention </span>
+                <hr>
+                <div class="basic">
+                    <p> Description</p>
+                    <p> Description</p>
+                    <p> Description</p>
+                    <p> Description</p>
+                    <p> Description</p>
+                </div> 
+                <section class="prix"> 40 € </br></section>
+                <a href="#contact" class="btn btn-success" style="margin-top:96px;margin-bottom:10px;">Pack basic</a>
+            </div>
+            <div class="col-md-4">
+            <h1 class="titre-up"> Rapidité  </h1>
+            <span> Pour un meilleure service </span>
+            <hr>
+                <div class="confort"> 
+                    <p> Description</p>
+                    <p> Description</p>
+                    <p> Description</p>
+                    <p> Description</p>
+                    <p> Description</p>
+                </div> 
+                <section class="prix"> 40 € </br></section>
+                <a href="#contact" class="btn btn-success" style="margin-top:96px;margin-bottom:10px;">Pack confort</a>
+            </div>
+            <div class="col-md-4">
+            <h1 class="titre-up"> Efficacité </h1>
+            <span> Assistance 24/7 </span>
+            <hr>
+                <div class="Assistance"> 
+                    <p> Description</p>
+                    <p> Description</p>
+                    <p> Description</p>
+                    <p> Description</p>
+                    <p> Description</p>
+                </div> 
+                <section class="prix"> 40 € </br></section>
+                <a href="#contact" class="btn btn-success" style="margin-top:96px;margin-bottom:10px;">Pack Assistance</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- /. Nos Services -->
+
+<!-- Annonces -->
+
+
+<h1 class="container">Annonces Autos</h1>
+<div class="container-all">
+    {% for annonces_view in annonces_views %}
+    <div class="annonces_img"><div class="block"></div></div> 
+    <div class="container description-line">
+        <div class="row">
+        <div class="col-md-4">
+            <h1 class="titre_annonces"> {{ annonces_view.titre }} </h1>
+                <div class="description_annonces">
+                    <span class="fas fa-cogs">{{ annonces_view.kilometrage }}</span>
+                    <span class="fas fa-car">{{ annonces_view.energie }}</span>
+                    <span class="fas fa-compact-disc"> CT: {{ annonces_view.ct }} </span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+    </div>
+</div>
+</div>
+<!-- /.Annonces  -->
+
+<!-- Contact0 -->
+
+
+
+<!-- ./ -->
+
+
+                                
 
 {% endblock %}

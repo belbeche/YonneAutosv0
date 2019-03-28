@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NosAnnonces index{% endblock %}
+
+{% block body %}
+    <h1>NosAnnonces index</h1>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Annee</th>
+                <th>Modele</th>
+                <th>Marque</th>
+                <th>Ct</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Img</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for nos_annonce in nos_annonces %}
+            <tr>
+                <td>{{ nos_annonce.id }}</td>
+                <td>{{ nos_annonce.annee }}</td>
+                <td>{{ nos_annonce.modele }}</td>
+                <td>{{ nos_annonce.marque }}</td>
+                <td>{{ nos_annonce.ct }}</td>
+                <td>{{ nos_annonce.titre }}</td>
+                <td>{{ nos_annonce.description }}</td>
+                <td>{{ nos_annonce.img }}</td>
+                <td>
+                    <a href="{{ path('nos_annonces_show', {'id': nos_annonce.id}) }}">Voir</a>
+                    <a href="{{ path('nos_annonces_edit', {'id': nos_annonce.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">Aucune annonces trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('nos_annonces_new') }}">Ajouter</a>
+{% endblock %}
