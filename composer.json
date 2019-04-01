@@ -1,10 +1,13 @@
 {
     "type": "project",
     "license": "proprietary",
+    "name": "composer loads modules",
+    "description": "composer loads modules",
     "require": {
         "php": "^7.1.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "doctrine/annotations": "^1.6",
         "doctrine/doctrine-bundle": "^1.10",
         "sensio/framework-extra-bundle": "^5.2",
         "symfony/apache-pack": "^1.0",
@@ -21,7 +24,7 @@
         "symfony/security-csrf": "4.2.*",
         "symfony/twig-bundle": "4.2.*",
         "symfony/validator": "4.2.*",
-        "symfony/webpack-encore-bundle": "^1.2",
+        "symfony/webpack-encore-bundle": "^1.4",
         "symfony/yaml": "4.2.*",
         "twig/extensions": "^1.5"
     },

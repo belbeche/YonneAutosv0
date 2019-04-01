@@ -77,8 +77,10 @@
     </div>
 </div>
 
+{# include 'home/add_contact.html.twig' with ('getUserIndex':'id') #}
 
-<div class="card text-white bg-primary mb-3" style="margin-top:-50px;">
+
+<div class="card text-white bg-primary mb-3" style="margin-top:-50px;" id="a-propos">
     <div class="container">
         <div class="row">
             <div class="col-md-6 histoire_mob" style="font-size:25px;">
@@ -91,15 +93,40 @@
             </div>
             <div class="col-md-6">
                 <div class="card border-dark mb-3 adresse_mob" style="font-size:25px;">
-                    <div class="card-header"><i class="fas fa-home">Adresse</i></div>
+                    <div class="card-header"><i class="fas fa-home">Nous situer</i></div>
                         <div class="card-body">
-                            <h4 class="card-title"> 59 Av charles de gaules, 89000</h4>
-                            <p class="card-text">Telephone : 00.00.00.00.00</p>
-                            <span>{{ form_start(ouverture) }}</span>
-                            <span>{{ form_widget(ouverture) }} </span>
-                            <span>{{ form_end(ouverture) }} </span>
-                            <a href="#nos-pack" class="btn btn-primary" style="margin-top: 10px;text-align:right;"> Découvrir nos packs </a>
-                            <a href="#contact" class="btn btn-info" style="margin-top: 10px;"> Nous contacter </a>
+                            <h4 class="card-title">59 Av charles de gaules, 89000</h4>
+                            <p class="card-text">Telephone : 06 67 11 22 33</p>
+                            <div id="contact"> 
+                               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#boite_dialogue"> Demande en ligne </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="boite_dialogue" tabindex="-1" role="dialog" aria-labelledby="boite_dialogueLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="boite_dialogueLabel">Pourquoi nous contactez vous ? </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body form-group">
+                                        <span>{{ form_start(form_index) }}</span>
+                                        <span> Nos Horaires d'ouverture </span>
+                                        <span> {{ form_widget(form_index.ouvertures)}}</span></br>
+                                        <span> Découvrez nos différents services </span>
+                                        <span>{{ form_widget(form_index.DemandeEnLigne) }} </span>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
+                                        <a> {{ form_widget(form_index.Suivant)}} </a>
+                                        <span>{{ form_end(form_index) }} </span>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <a href="#nos-pack" class="btn btn-primary" style="margin-top: 10px;text-align:right;"> Découvrir nos packs </a>
+                                <a href="#contact" class="btn btn-info" style="margin-top: 10px;"> Nous contacter </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -109,7 +136,7 @@
 </div>
 
 <!-- Nos services -->
-<div class="container">
+<div class="container" id="nos-services">
     <div class="nos-services" style="text-align:center;margin-left:2px;height:50em;" id="nos-pack">
         <h1 style="text-align:center;margin-top: 50px;">Nos packs </h1></br>
         <div class="row nos-pack" style="height:35em;">
@@ -162,10 +189,10 @@
 
 <!-- /. Nos Services -->
 
-<!-- Annonces -->
+<!-- Annonces(Nos Offres) -->
 
 
-<h1 class="container">Annonces Autos</h1>
+<h1 class="container" id="nos-offres">Annonces Autos</h1>
 <div class="container-all">
     {% for annonces_view in annonces_views %}
     <div class="annonces_img"><div class="block"></div></div> 
@@ -187,9 +214,28 @@
 </div>
 <!-- /.Annonces  -->
 
+<!-- Contact(Contact) -->
+
+
+
+<div class="container-all" id="choicecontact">
+   Choix de la demande de contact
+</div>
+
+<!-- /.Contact  -->
+
+<!-- Info pratique -->
+<div id="info-pratique">
+Info pratique , conseils d'utilisations et ou de réparations
+</div>
+
+<!-- -->
+
 <!-- Contact0 -->
 
-
+{{ form_start(form_index) }}
+{{ form_row(form_index.DemandeEnLigne) }}
+{{ form_end (form_index)}}
 
 <!-- ./ -->
 

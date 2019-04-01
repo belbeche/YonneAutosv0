@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,10 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
 class ServicesForm
 {
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
+    * @ORM\Id()
+    * @ORM\GeneratedValue()
+    * @ORM\Column(type="integer")
+    */
     private $id;
 
     /**
@@ -42,7 +44,7 @@ class ServicesForm
     private $createdAt;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     *@ORM\Column(type="string")
      */
     private $DemandeEnLigne;
 
@@ -55,6 +57,16 @@ class ServicesForm
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $NosPacks;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="getServicesForm",cascade={"persist"})
+     */
+    private $updateServicesForm;
+
+    public function __construct()
+    {
+        $this->updateServicesForm = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -165,6 +177,37 @@ class ServicesForm
     public function setNosPacks(?string $NosPacks): self
     {
         $this->NosPacks = $NosPacks;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUpdateServicesForm(): Collection
+    {
+        return $this->updateServicesForm;
+    }
+
+    public function addUpdateServicesForm(User $updateServicesForm): self
+    {
+        if (!$this->updateServicesForm->contains($updateServicesForm)) {
+            $this->updateServicesForm[] = $updateServicesForm;
+            $updateServicesForm->setGetServicesForm($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUpdateServicesForm(User $updateServicesForm): self
+    {
+        if ($this->updateServicesForm->contains($updateServicesForm)) {
+            $this->updateServicesForm->removeElement($updateServicesForm);
+            // set the owning side to null (unless already changed)
+            if ($updateServicesForm->getGetServicesForm() === $this) {
+                $updateServicesForm->setGetServicesForm(null);
+            }
+        }
 
         return $this;
     }

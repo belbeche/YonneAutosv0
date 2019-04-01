@@ -1,0 +1,47 @@
+{
+	"name": "jquery.mmenu",
+	"version": "7.3.3",
+	"main": "dist/jquery.mmenu.all.js",
+	"author": "Fred Heusschen <info@frebsite.nl>",
+	"license": "CC-BY-NC-4.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/FrDH/jQuery.mmenu.git"
+	},
+	"description": "The best jQuery plugin for app look-alike on- and off-canvas menus with sliding submenus for your website and webapp.",
+	"keywords": [
+		"app",
+		"list",
+		"listview",
+		"megamenu",
+		"menu",
+		"mmenu",
+		"mobile",
+		"navigation",
+		"off-canvas",
+		"on-canvas",
+		"curtain",
+		"panels",
+		"submenu"
+	],
+	"scripts": {
+		"build": "gulp default"
+	},
+	"devDependencies": {
+		"@types/hammerjs": "*",
+		"@types/jquery": "^3.3.29",
+		"@types/modernizr": "^3.5.2",
+		"gulp": "^4.0.0",
+		"gulp-autoprefixer": "*",
+		"gulp-clean-css": "*",
+		"gulp-concat": "*",
+		"gulp-rename": "*",
+		"gulp-sass": "*",
+		"gulp-terser": "^1.1.7",
+		"gulp-typescript": "*",
+		"gulp-umd": "^2.0.0",
+		"merge-stream": "^1.0.1",
+		"typescript": "*"
+	},
+	"types": "./index.d.ts"
+}

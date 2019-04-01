@@ -11,6 +11,8 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  * @method Contact|null findOneBy(array $criteria, array $orderBy = null)
  * @method Contact[]    findAll()
  * @method Contact[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @param $services
+ * @return ServicesForm[]
  */
 class ServicesFormRepository extends ServiceEntityRepository
 {
@@ -18,23 +20,6 @@ class ServicesFormRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, ServicesForm::class);
     }
-
-    // /**
-    //  * @return Contact[] Returns an array of Contact objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
 
     /*
     public function findOneBySomeField($value): ?Contact

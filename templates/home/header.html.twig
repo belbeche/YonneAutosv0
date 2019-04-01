@@ -1,41 +1,132 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-            <title>
-                {% block title %}{% endblock %}
-            </title>
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" rel="stylesheet">
-        <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" media="all" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
-        {% endblock %}
-    </head>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Yonne Autos</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<head>
+    <meta charset="UTF-8">
+      <title>
+          {% block title %}{% endblock %}
+      </title>
+      {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+      <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" rel="stylesheet">
+      <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" media="all" rel="stylesheet">
+      {% endblock %}
 
-  <div class="collapse navbar-collapse" id="navbarColor03">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Notre histoire</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Nos Services</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Nos offres</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
-      </li>
+      {% block javascript %}
+        <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="http://www.steadness.com/js/jquery.mmenu.all.js"></script>
+      {% endblock %}
+</head>
+
+<div class="mh-head Sticky">
+    <span class="mh-btns-left">
+        <a class="fa fa-bars" href="#menu"></a>
+        <a class="fa fa-close" href="#page"></a>
+    </span>
+  <span class="mh-text">Yonne Autos</span>
+  <span class="mh-text">Garage Auxerre |- Y.A -| Véhicules légers</span>
+</div>
+
+<nav id="menu">
+    <ul id="panel-menu">
+        <li>
+        <span id="modal" style="display:none;"></span>
+            <a href="/">Accueil</a>
+        </li>
+        <li>
+            <span><a href="#a-propos">A propos</a></span>
+            <ul>
+              <li><a href="#histoire">Histoire</a></li>
+              <li><a href="#nos-locaux">Nos locaux : Galerie</a></li>
+            </ul>
+        </li>
+        <li>
+          <span>Nos Services</span>
+          <ul>
+              <li><a href="#modal">Basique : Réparation mécanique </a></li>
+              <li><a href="#modal">Confort: Bénificiez de nos avatages </a></li>
+              <li><a href="#modal">Assistance 24x7</a></li>
+          </ul>
+        </li>
+        
+        <li>
+          <span>Nos offres</span>
+          <ul>
+            <li><a href="#nos-offres">Annonces autos</a></li>
+            <hr>
+          </ul>
+          <ul>
+              <li><a href="#pneus">Carrosserie</a></li>
+              <li><a href="#espace-membre">Pneus</a></li>
+              <li><a href="#packs">Demande remorquage</a></li>
+              <li><a href="#nos-offres">Demande de pré-inscription</a></li>
+          </ul>
+        </li>
+        <li>
+            <a href="#contact">Infos pratique</a>
+        </li>
+         <li>
+            <a href="#contact">Contact</a>
+            <ul>
+              <li>Notre équipes : téléphone users</li>
+              <li>Demande spécifiques : grossistes </li>
+            </ul>
+        </li>
     </ul>
-  </div>
+    <ul id="panel-language">
+      <span> Langues - Babel  </span>
+        <li>
+            <a href="#/en">English</a>
+        </li>
+        <li>
+            <a href="#/de">Espagne</a>
+        </li>
+        <li>
+            <a href="#/nl">Italie</a>
+        </li>
+    </ul>
 </nav>
+
+<script>
+$('#modal_link').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+
+    $(function () {
+
+        $("#menu").mmenu({
+            extensions: [
+                "position-bottom",
+                "fullscreen",
+                "theme-black",
+                "listview-50",
+                "fx-panels-slide-down",
+                "fx-listitems-drop",
+                "border-offset"
+            ],
+            navbar: {
+                title: ""
+            },
+            navbars: [
+                {
+                    height: 2,
+                    content: ['<a class="fa fa-phone" href="tel:06 67 11 22 33" id="modal_link"></a>','<img src="https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?resize=256%2C256&quality=100&ssl=1"/>','<a class="fa fa-envelope" href="#contact"></a>']
+                }, {
+                    content: ["prev", "title"]
+                }
+            ]
+        }, {});
+        $(".mh-head.mm-sticky").mhead({
+            scroll: {
+                hide: 200
+            }
+        });
+        $(".mh-head:not(.mm-sticky)").mhead({scroll: false});
+
+
+        $('body').on('click', 'a[href^="#/"]', function () {
+            alert("Thank you for clicking, but that's a demo link.");
+            return false;
+        });
+    });
+</script>

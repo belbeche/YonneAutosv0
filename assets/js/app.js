@@ -6,6 +6,10 @@
  */
 
 // any CSS you require will output into a single css file (app.css in this case)
+require('../css/hamburger.css')
+require('../css/mhead.css')
+require('../css/menu.css')
+require('../css/jquery.mmenu.all.css')
 require('../css/bulma.min.css')
 require('../css/sequence-theme.css')
 require('../css/bootstrap.min.css')

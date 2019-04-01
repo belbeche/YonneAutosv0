@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -14,12 +17,11 @@ class User implements UserInterface
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @ORM\ManyToOne(targetEntity="App\Entity\ServicesForm", inversedBy="ServicesForm")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=180, unique=true)
+     * @ORM\Column(type="string", length=180, unique=true, nullable=true)
      */
     private $email;
 
@@ -30,30 +32,41 @@ class User implements UserInterface
 
     /**
      * @var string The hashed password
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $password;
-
-    /**
-     * @ORM\Column(type="string", length=30)
-     */
-    private $nom;
-
-    /**
-     * @ORM\Column(type="string", length=30)
-     */
-    private $prenom;
-
-    /**
-     * @ORM\Column(type="bigint")
-     */
-    private $telephone;
-
+    
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $createdAt;
 
+    /**
+     * @ORM\Column(type="string", length=30, nullable=true)
+     */
+    private $nom;
+
+    /**
+     * @ORM\Column(type="string", length=30, nullable=true)
+     */
+    private $prenom;
+
+    /**
+     * @ORM\Column(type="bigint", nullable=true)
+     */
+    private $telephone;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $message;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\ServicesForm", inversedBy="updateServicesForm")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $getServicesForm;
+ 
     public function getId(): ?int
     {
         return $this->id;
@@ -82,8 +95,8 @@ class User implements UserInterface
     }
 
     /**
-     * @see UserInterface
-     */
+    * @see UserInterface
+    */
     public function getRoles(): array
     {
         $roles = $this->roles;
@@ -131,13 +144,25 @@ class User implements UserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+    
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(?\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
 
     public function getNom(): ?string
     {
         return $this->nom;
     }
 
-    public function setNom(?string $nom): self
+    public function setNom(string $nom): self
     {
         $this->nom = $nom;
 
@@ -168,14 +193,26 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getMessage(): ?string
     {
-        return $this->createdAt;
+        return $this->message;
     }
 
-    public function setCreatedAt(?\DateTimeInterface $createdAt): self
+    public function setMessage(?string $message): self
     {
-        $this->createdAt = $createdAt;
+        $this->message = $message;
+
+        return $this;
+    }
+
+    public function getGetServicesForm(): ?ServicesForm
+    {
+        return $this->getServicesForm;
+    }
+
+    public function setGetServicesForm(?ServicesForm $getServicesForm): self
+    {
+        $this->getServicesForm = $getServicesForm;
 
         return $this;
     }
