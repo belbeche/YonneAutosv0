@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\NosAnnoncesRepository")
@@ -138,12 +139,12 @@ class NosAnnonces
         return $this;
     }
 
-    public function getImg(): ?string
+    public function getImg()
     {
         return $this->img;
     }
 
-    public function setImg(string $img): self
+    public function setImg($img)
     {
         $this->img = $img;
 

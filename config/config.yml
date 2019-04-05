@@ -1,4 +1,4 @@
-sensio_framework_extra:
+user_entity:
   request:
     converters: true
-    auto_convert: false
+    auto_convert: true

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Swiper demo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+        <link rel="stylesheet" href="css/swiper.min.css" />
+        <link rel="stylesheet" href="css/transitionSlider.css" />
+
+        <script src="https://polyfill.io/v3/polyfill.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.min.js" integrity="sha256-MLiiWIesl0wBnSFezbrIMF0aFZjuWY3eu/jvVbgRBvE=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.min.js" integrity="sha256-pkdE3jvAwnyWTuWZ1AEJdS1OeJKCFM6yNcznk/A5sKw=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/swiper.min.js"></script>
+        <script type="text/javascript" src="js/transitionSlider.min.js"></script>
+
+        <script>
+            jQuery(document).ready(function($) {
+                $("#slider1").transitionSlider({
+                    slides: [
+                        { src: "assets/1.jpg" },
+                        { src: "assets/2.jpg" },
+                        { src: "assets/3.jpg" },
+                        { src: "assets/1.mp4" }
+                    ],
+                    navigation: {
+                        style: "effect1"
+                    },
+                    transitionEffect:"roll"
+                });
+
+
+                $("#slider2").transitionSlider({
+                    slides: [
+                        { src: "assets/1.jpg", direction: "left", transitionDuration: 500 },
+                        { src: "assets/2.jpg", direction: "top", distance: "short", transitionDuration: 700 },
+                        { src: "assets/3.jpg", easing: "elastic", distance: "long" },
+                        { src: "assets/4.jpg", distance: "short", brightness: "fade" },
+                        { src: "assets/1.jpg", transitionDuration: 300 },
+                        { src: "assets/2.jpg", direction: "bottomRight", distance: "short" },
+                        { src: "assets/3.jpg", easing: "slow", brightness: "flash"},
+                        { src: "assets/4.jpg", distance: "short", brightness: "fade" },
+                        { src: "assets/1.mp4", distance: 1, brightness: 2 },
+                        { src: "assets/2.mp4", distance: 2, brightness: .5, easing: "slow" },
+                        { src: "assets/1.mp4" },
+                    ],
+                    transitionEffect:"roll"
+                });
+            });
+        </script>
+
+        <style type="text/css">
+            .slider-wrapper{
+                width: 800px;
+                height: 450px;
+                margin: 10px;
+            }
+            p{
+                margin-left: 10px;
+                margin-top: 30px; 
+            }
+        </style>
+
+    </head>
+    <body>
+        <p>Roll transition</p>
+        <div class="slider-wrapper">
+            <div id="slider1"></div>
+        </div>
+
+        <p>Customizing roll transition</p>
+        <div class="slider-wrapper">
+            <div id="slider2"></div>
+        </div>
+    </body>
+</html>

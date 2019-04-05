@@ -1,73 +1,42 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Garage Auxerre 89{% endblock %}
-
-
 {% block body %}
 
+<script src="https://polyfill.io/v3/polyfill.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.min.js" integrity="sha256-MLiiWIesl0wBnSFezbrIMF0aFZjuWY3eu/jvVbgRBvE=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.min.js" integrity="sha256-pkdE3jvAwnyWTuWZ1AEJdS1OeJKCFM6yNcznk/A5sKw=" crossorigin="anonymous"></script>
 
-<div class="seq" id="sequence">
-    <div class="seq-bg"></div>
-    <div class="seq-screen">
-        <ul class="seq-canvas">
-            <li class="seq-in seq-valign">
-                <div class="seq-content">
-                    <h2 class="seq-title" data-seq>Test : titre</h2>
-                    <div class="seq-description" data-seq>
-                        <p>Lorem ipsum dolor set amet</p>
-                        <a class="seq-button" href="#">En savoir plus
-                            <span class="seq-next-arrow">&gt;</span>
-                        </a>
-                    </div>
-                </div>
-            </li>
-            <li class="seq-valign">
-                <div class="seq-content">
-                    <h2 class="seq-title" data-seq>Test : titre</h2>
-                    <div class="seq-description" data-seq>
-                        <p>For sliders, presentations,
-                        <br/>Lorem ipsum dolor set amet</p>
-                        <a class="seq-button" href="#">En savoir plus
-                            <span class="seq-next-arrow">&gt;</span>
-                        </a>
-                    </div>
-                </div>
-            </li>
-            <li class="seq-valign">
-                <div class="seq-content">
-                    <h2 class="seq-title" data-seq>Test: titre</h2>
-                    <div class="seq-description" data-seq>
-                        <p>All of the JavaScript functionality you need built-in</p>
-                        <a class="seq-button" href="#">En savoir plus
-                            <span class="seq-next-arrow">&gt;</span>
-                        </a>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <fieldset aria-controls="sequence" aria-label="Slider buttons" class="seq-nav">
-        <button aria-label="Previous" class="seq-prev" type="button">
-            <span class="seq-prev-arrow">&lt;</span>
-        </button>
-        <ul aria-label="Pagination" class="seq-pagination" role="navigation">
-            <li>
-                <a href="#step1" rel="step1" title="Go to slide 1">1</a>
-            </li>
-            <li>
-                <a href="#step2" rel="step2" title="Go to slide 2">2</a>
-            </li>
-            <li>
-                <a href="#step3" rel="step3" title="Go to slide 3">3</a>
-            </li>
-        </ul>
-        <button aria-label="Next" class="seq-next" type="button">
-            <span class="seq-next-arrow">&gt;</span>
-        </button>
-    </fieldset>
-</div>
+<div id="slider-wrapper"></div>
 
-<div class="card-header bg-info mb-3" id="titre-entreprise">
+<script>
+    $(document).ready(function($) {
+            $("#slider-wrapper").transitionSlider({
+                slides: [
+                    { src: "assets/1.jpg" },
+                    { src: "assets/2.jpg" },
+                    { src: "assets/3.jpg" }
+                ],
+                delay : 1000,
+                width: 590,
+                height: 213,
+                responsive: true,
+                keyboard: {
+                    enabled: true
+                },
+                pagination: {
+                    style: "effect2",
+                    dynamicBullets: false,
+                    clickable: true,
+                }
+            });
+        });
+</script>
+
+
+
+
+<div class="card-header bg-info mb-3 fade-up" data-aos-anchor-placement="center-bottom">
     <div class="card-body" id="titre_entreprise">
         <div class="head-title">
             <h4 class="card-title" id="titre-entreprise">Yonne Autos</h4>
@@ -77,12 +46,9 @@
     </div>
 </div>
 
-{# include 'home/add_contact.html.twig' with ('getUserIndex':'id') #}
-
-
-<div class="card text-white bg-primary mb-3" style="margin-top:-50px;" id="a-propos">
-    <div class="container">
-        <div class="row">
+<div class="card text-white bg-primary mb-3 ms-left" id="a-propos" style="margin-top:-50px;">
+    <div class="container ms-section">
+        <div class="row ms-section">
             <div class="col-md-6 histoire_mob" style="font-size:25px;">
                 <div class="card-body">
                     <h4 class="card-title">Notre histoire</h4>
@@ -91,14 +57,13 @@
                     <p>Nous vous invitons à découvrir plus en détail toutes nos prestations. Nous vendons des véhicules neufs et d'occasion.</p>  
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 ms-right" style="margin-top: 45px;">
                 <div class="card border-dark mb-3 adresse_mob" style="font-size:25px;">
                     <div class="card-header"><i class="fas fa-home">Nous situer</i></div>
                         <div class="card-body">
-                            <h4 class="card-title">59 Av charles de gaules, 89000</h4>
+                            <h4 class="card-title">Adresse : 59 Av charles de gaules, 89000</h4>
                             <p class="card-text">Telephone : 06 67 11 22 33</p>
                             <div id="contact"> 
-                               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#boite_dialogue"> Demande en ligne </button>
                                 <!-- Modal -->
                                 <div class="modal fade" id="boite_dialogue" tabindex="-1" role="dialog" aria-labelledby="boite_dialogueLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -124,8 +89,6 @@
                                     </div>
                                 </div>
                                 </div>
-                                <a href="#nos-pack" class="btn btn-primary" style="margin-top: 10px;text-align:right;"> Découvrir nos packs </a>
-                                <a href="#contact" class="btn btn-info" style="margin-top: 10px;"> Nous contacter </a>
                             </div>
                         </div>
                     </div>
@@ -136,12 +99,12 @@
 </div>
 
 <!-- Nos services -->
-<div class="container" id="nos-services">
+<div class="container-fluide" id="nos-services">
     <div class="nos-services" style="text-align:center;margin-left:2px;height:50em;" id="nos-pack">
-        <h1 style="text-align:center;margin-top: 50px;">Nos packs </h1></br>
+        <h1 style="text-align:center;margin-top: 50px;" class="titre_services">Nos packs </h1></br>
         <div class="row nos-pack" style="height:35em;">
             <div class="col-md-4">
-                <h1 class="titre-up"> Simplicité  </h1>
+                <h2 class="titre-up"> Simplicité  </h2>
                 <span>Pour une intervention </span>
                 <hr>
                 <div class="basic">
@@ -155,7 +118,7 @@
                 <a href="#contact" class="btn btn-success" style="margin-top:96px;margin-bottom:10px;">Pack basic</a>
             </div>
             <div class="col-md-4">
-            <h1 class="titre-up"> Rapidité  </h1>
+            <h2 class="titre-up"> Rapidité  </h2>
             <span> Pour un meilleure service </span>
             <hr>
                 <div class="confort"> 
@@ -169,7 +132,7 @@
                 <a href="#contact" class="btn btn-success" style="margin-top:96px;margin-bottom:10px;">Pack confort</a>
             </div>
             <div class="col-md-4">
-            <h1 class="titre-up"> Efficacité </h1>
+            <h2 class="titre-up"> Efficacité </h2>
             <span> Assistance 24/7 </span>
             <hr>
                 <div class="Assistance"> 
@@ -186,58 +149,149 @@
     </div>
 </div>
 
+<!-- /.Annonces  -->
+
+<!-- Contact -->
+
+<div class="container">
+    <div class="row background_maps">
+        <div class="col-md-6 maps_size" style="padding:0;">
+            <div class="maps">
+            <!--Google map-->
+            <div class="z-depth-1-half map-container" id="map-container-google-1" style="height: 500px">
+                <iframe allowfullscreen frameborder="0" height="250" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1339.5611647483074!2d3.585898723087125!3d47.81784687814828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDQ5JzA0LjQiTiAzwrAzNScxMi44IkU!5e0!3m2!1sen!2sfr!4v1554229672132!5m2!1sen!2sfr" style="border:0" width="150"></iframe>
+            </div>
+            <!--Google Maps-->
+            </div>
+        </div>
+        <div class="col-md-6 adresse" style="background-color: #6c757d;">
+            <h1 style="color:white;font-size:20px;">Nous situer</h1>
+            <span style="color:#dee2e6;">Adresse: 58 Av charles de gaules</br></span>
+            <span style="color:#dee2e6;">Code postale: 89000 </br></span></br>
+            <span style="color:#dee2e6;"> Telephone : <a href="tel:0667112233" style="color:white;"> 06 67 11 22 33</a> 
+            </span></br> 
+            <div class="container news_situer">
+                <span class="newsletter"><button class="btn btn-success" data-target="#boite_dialogue1" data-toggle="modal" type="button" style="margin-top:10px;">Annonces Voitures</button></span>
+                <span class="newsletter"><button type="button" class="btn btn-info newsletter" data-toggle="modal" data-target="#boite_dialogue" style="color:white;"> Demande en ligne </button></span>
+                <span class="newsletter"><button href="#nos-pack" class="btn btn-primary newsletter" style="text-align:right;margin-top:10px;"> Découvrir nos packs </button></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /.Contact -->
+
+{# <div class="container">
+</br>
+    <h1> S'inscrire à la newsletter </h1>
+
+    <p> Nos offres vous intéresse ? <p>
+
+
+    {{ form_start(form_index) }}
+
+    {{ form_label(form_index.email, 'Renseigner votre e-mail pour être informer de nos actualités')}}
+
+    {{ form_widget(form_index.email) }}
+
+    {{ form_widget(form_index.valider)}}
+
+    {{ form_end(form_index) }}
+</div> #}
+
+<!-- Info pratique -->
+
+
+{# <div id="info-pratique">
+Info pratique , conseils d'utilisations et ou de réparations
+</div> #}
+
+<!-- Contact0 -->
 
 <!-- /. Nos Services -->
 
 <!-- Annonces(Nos Offres) -->
 
 
-<h1 class="container" id="nos-offres">Annonces Autos</h1>
-<div class="container-all">
-    {% for annonces_view in annonces_views %}
-    <div class="annonces_img"><div class="block"></div></div> 
-    <div class="container description-line">
-        <div class="row">
-        <div class="col-md-4">
-            <h1 class="titre_annonces"> {{ annonces_view.titre }} </h1>
-                <div class="description_annonces">
-                    <span class="fas fa-cogs">{{ annonces_view.kilometrage }}</span>
-                    <span class="fas fa-car">{{ annonces_view.energie }}</span>
-                    <span class="fas fa-compact-disc"> CT: {{ annonces_view.ct }} </span>
+<div id="contact">
+    <!-- Modal -->
+    <div aria-hidden="true" aria-labelledby="boite_dialogueLabel" class="modal fade" id="boite_dialogue1" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="boite_dialogueLabel">Annonces voitures en attente de confirmation.
+                    </h5>
+                    <div class="container">
+                        <h1 id="nos-offres">Annonces voitures</h1>
+                        <hr>
+                    </div>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body form-group">
+                <div class="container container-all">
+                {% for annonces_view in annonces_views %}
+                    <div class="block_annonces">
+                        <div class="row">
+                            <div class="col-md-6 caractéristique">
+                                <h1 class="titre_annonces"> {{ annonces_view.titre }} </h1>
+                                <div class="annonces_img">{{ annonces_view.img }}</div>
+                                <div>
+                                    <span class=""> Anne :  {{ annonces_view.annee }}</span></br>
+                                    <span class=""> Energie : {{ annonces_view.energie }}</span></br>
+                                    <span class=""> Kilometrage : {{ annonces_view.kilometrage }}</span></br>
+                                    <span class="fas fa-compact-disc"> CT: {{ annonces_view.ct }} </span></br>
+                                    <a href="#id-annonce" class="btn btn-primary"> Voir annonces </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal" type="button">Retour</button>
+                <span>{{ form_end(form_index) }}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.Annonces(Nos Offres) -->
+
+<!-- Footer -->
+
+<div class="container footer">
+    <div class="row">
+        <div class="col-md-6">
+            <h1 style="font-size: 2.5rem;"> Galerie </h1>
+            <div class="img-box">
+                <div>
+                    <img src="https://png2.kisspng.com/sh/17024a4fdbf0db9c1cc0a38f5d5b3d46/L0KzQYm3VsI3N6Z8i5H0aYP2gLBuTfF3aaVmip9Ac3X1PbT2jgB2fJZ3Rdtsb372PcT2hwR4aaNqRdZudnXvf8Hskr02amQ3T9VsOXPmQYbtV745P2M8SqkDMEG4Q4G3U8U1OGI9S6g3cH7q/kisspng-avatar-user-computer-icons-software-developer-5b327cc9cc15f7.872727801530035401836.png" width="100" height="100"> 
+                </div>
+                <div>
+                    <img height="100" src="https://png2.kisspng.com/sh/17024a4fdbf0db9c1cc0a38f5d5b3d46/L0KzQYm3VsI3N6Z8i5H0aYP2gLBuTfF3aaVmip9Ac3X1PbT2jgB2fJZ3Rdtsb372PcT2hwR4aaNqRdZudnXvf8Hskr02amQ3T9VsOXPmQYbtV745P2M8SqkDMEG4Q4G3U8U1OGI9S6g3cH7q/kisspng-avatar-user-computer-icons-software-developer-5b327cc9cc15f7.872727801530035401836.png" width="100"> 
+                </div>
+                <div>
+                <img height="100" src="https://png2.kisspng.com/sh/17024a4fdbf0db9c1cc0a38f5d5b3d46/L0KzQYm3VsI3N6Z8i5H0aYP2gLBuTfF3aaVmip9Ac3X1PbT2jgB2fJZ3Rdtsb372PcT2hwR4aaNqRdZudnXvf8Hskr02amQ3T9VsOXPmQYbtV745P2M8SqkDMEG4Q4G3U8U1OGI9S6g3cH7q/kisspng-avatar-user-computer-icons-software-developer-5b327cc9cc15f7.872727801530035401836.png" width="100"></div>
+            </div>
+        </div>
+        <div class="container-fluide col-md-6 titre_pratique" style="background-color: #363636;">
+            <h1> Infos pratique </h1>
+            <div class="row">
+                <div class="col-md-6" style="background-color: #607d8b;">
+                    <div width="100" height="100"></div>
+                </div>
+                <div class="col-md-6 right" style="background-color: lightgray;">
+                    <span style="background-color: lightgray;" height="250px;"> Test </span>                
                 </div>
             </div>
         </div>
     </div>
-{% endfor %}
-    </div>
-</div>
-</div>
-<!-- /.Annonces  -->
-
-<!-- Contact(Contact) -->
-
-
-
-<div class="container-all" id="choicecontact">
-   Choix de la demande de contact
 </div>
 
-<!-- /.Contact  -->
-
-<!-- Info pratique -->
-<div id="info-pratique">
-Info pratique , conseils d'utilisations et ou de réparations
-</div>
-
-<!-- -->
-
-<!-- Contact0 -->
-
-{{ form_start(form_index) }}
-{{ form_row(form_index.DemandeEnLigne) }}
-{{ form_end (form_index)}}
-
-<!-- ./ -->
+<!-- ./ Footer -->
 
 
                                 

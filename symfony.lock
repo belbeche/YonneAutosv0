@@ -1,4 +1,7 @@
 {
+    "behat/transliterator": {
+        "version": "v1.2.0"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -80,6 +83,9 @@
     },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
+    },
+    "jms/metadata": {
+        "version": "1.7.0"
     },
     "nikic/php-parser": {
         "version": "v4.2.1"
@@ -290,6 +296,9 @@
     "symfony/stopwatch": {
         "version": "v4.2.4"
     },
+    "symfony/templating": {
+        "version": "v4.2.5"
+    },
     "symfony/twig-bridge": {
         "version": "v4.2.4"
     },
@@ -340,7 +349,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "1.0",
-            "ref": "1b88cff897d383c45522a457ea9daba85a9b9ab2"
+            "ref": "134850a60890780e53f5ff024fcfadbe960ab89d"
         },
         "files": [
             "./assets/css/app.css",
@@ -350,6 +359,15 @@
             "./package.json",
             "./webpack.config.js"
         ]
+    },
+    "symfony/webpack-encore-pack": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "e18b0c550c3ee79142dc314b3e38193caafe4bb5"
+        }
     },
     "symfony/yaml": {
         "version": "v4.2.4"
@@ -368,6 +386,18 @@
     },
     "twig/twig": {
         "version": "v2.7.4"
+    },
+    "vich/uploader-bundle": {
+        "version": "1.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.5",
+            "ref": "c4f5755b37fb65b9c6a3cbdae91205c15a137ed4"
+        },
+        "files": [
+            "./config/packages/vich_uploader.yaml"
+        ]
     },
     "zendframework/zend-code": {
         "version": "3.3.1"

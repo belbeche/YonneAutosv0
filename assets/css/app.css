@@ -1,3 +1,7 @@
+body {
+    background-color: lightgray;
+}
+    
 /* Heahder */
 @import url('https://fonts.googleapis.com/css?family=Abel');
 
@@ -164,9 +168,14 @@ body {
 .level-item a:hover{
     text-decoration:none;
 }
+
 /* ./ HeaderUP*/
 
 /* Body */
+
+.demande_en_ligne{
+    margin-top: 9px;
+}
 
 div .carousel{
     background-color:black;
@@ -322,6 +331,9 @@ div .carousel{
 
 /* Contact me */
 
+.news_situer span{
+    display:inline-block;
+}
 .form-control{
     height: 150%;
 }

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+	<title>Transition Slider - jQuery plugin</title>
+ 	<meta name="description" content="">
+	<meta name="author" content="creativeinteractivemedia">
+	<meta name="copyright" content="creativeinteractivemedia">
+	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+	<meta name="date" content="2019-03-19T00:00:00+01:00">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/documenter_style.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+	
+	<style>
+		html, body{background-color:#FFFFFF;color:#383838;}
+		h1,h2,h3,h4,h5,h6{color:#383838;}
+		section table{background-color:#FFFFFF;}
+		::-moz-selection{background:#444444;color:#DDDDDD;}
+		::selection{background:#444444;color:#DDDDDD;}
+		a.brand{background-image:url();}
+		a, a:hover, a:active{color:#0088CC;}
+		hr{border-top:1px solid #EBEBEB;border-bottom:1px solid #AAAAAA;}
+		div.navbar-inner, .navbar .nav li ul{background:#DDDDDD;color:#222222;}
+		a.btn-navbar{background:#DDDDDD;color:#222222;}
+		.navbar .nav li a{color:#222222;text-shadow:1px 1px 0px #EEEEEE;}
+		.navbar .nav li a:hover, .navbar .nav li.active a{text-shadow:none;}
+		div.navbar-inner ul{}
+		.marketing-byline{color:#AAAAAA;}
+		.navbar .nav > li a{color:#444444;}
+		.navbar .nav > li a:hover, a.btn-navbar:hover{background:#444444;color:#DDDDDD;}
+		.navbar .nav .active > a, .navbar .nav .active > a:hover, a.btn-navbar:active{background-color:#444444;color:#DDDDDD;}
+		.navbar .nav li ul li a:hover{background:#444444;color:#DDDDDD;}
+		.navbar .nav li ul li a:active{background:#444444;color:#DDDDDD;}
+		.btn-primary {
+			  background-image: -moz-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: -ms-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: -webkit-gradient(linear, 0 0, 0 0088CC%, from(#DDDDDD), to(#0044CC));
+			  background-image: -webkit-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: -o-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: linear-gradient(top, #0088CC, #0044CC);
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088CC', endColorstr='#0044CC', GradientType=0);
+			  border-color: #0044CC #0044CC #bfbfbf;
+			  color:#0088CC;
+		}
+		.btn-primary:hover,
+		.btn-primary:active,
+		.btn-primary.active,
+		.btn-primary.disabled,
+		.btn-primary[disabled] {
+		  background-color: #0044CC;
+		}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+	</style>
+	
+	
+	
+    </head>
+    
+<body class="documenter-project-transition-slider" data-spy="scroll" id="top">
+
+<!-- Documentation Navbar -->
+
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container"> 
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> 
+			<a class="brand" href="#">Transition Slider - jQuery plugin</a>
+			<div class="nav-collapse">
+			<ul class="nav">
+					
+			<li><a href="#special_notes" title="Special notes">Special notes</a>
+				<ul>
+					<li><a href="#special_notes_running_things_locally">Running things locally</a>
+				</ul>
+			</li>
+			<li><a href="#directories_and_files" title="Directories and files">Directories and files</a></li>
+			<li><a href="#getting_started" title="Getting started">Getting started</a>
+				<ul>
+					<li><a href="#getting_started_examples">Examples</a>
+					<li><a href="#getting_started_dependencies">Dependencies</a>
+					<li><a href="#getting_started_plugin_usage">Plugin usage</a>
+					<li><a href="#getting_started_creating_slider">Creating Slider</a>
+				</ul>
+			</li>
+			<li><a href="#general_options" title="General options">General options</a>
+				<ul>
+					<li><a href="#general_options_customizing_slider">Customizing Slider</a>
+					<li><a href="#general_options_optionswidth_number">options.width [Number]</a>
+					<li><a href="#general_options_optionsheight_number">options.height [Number]</a>
+					<li><a href="#general_options_optionsshadow_string">options.shadow [String]</a>
+					<li><a href="#general_options_optionsresponsive_boolean">options.responsive [Boolean]</a>
+					<li><a href="#general_options_optionstransitioneffect_string">options.transitionEffect [String]</a>
+					<li><a href="#general_options_optionstransitionduration_number">options.transitionDuration [Number]</a>
+					<li><a href="#general_options_optionsinitialslide_number">options.initialSlide [Number]</a>
+					<li><a href="#general_options_optionsstoponlastslide_boolean">options.stopOnLastSlide [Boolean]</a>
+					<li><a href="#general_options_optionsautoplay_object">options.autoplay [Object]</a>
+					<li><a href="#general_options_optionspagination_object">options.pagination [Object]</a>
+					<li><a href="#general_options_optionsnavigation_object">options.navigation [Object]</a>
+				</ul>
+			</li>
+			<li><a href="#slide_options" title="Slide options">Slide options</a>
+				<ul>
+					<li><a href="#slide_options_optionsslides_array">options.slides [Array]</a>
+				</ul>
+			</li>
+			<li><a href="#transition_effects" title="Transition effects">Transition effects</a></li>
+			<li><a href="#faq" title="FAQ">FAQ</a>
+				<ul>
+					<li><a href="#faq_can_i_load_images_and_videos_from_another_server_cross_domain_request_">Can I load images and videos from another server (cross domain request)?</a>
+					<li><a href="#faq_slider_is_not_working">Slider is not working</a>
+					<li><a href="#faq_mixed_content_error_in_browser_console">Mixed content error in browser console</a>
+				</ul>
+			</li>
+
+			</ul>
+			</div>
+		</div>
+	</div>
+</div> <!-- End of Navbar -->
+
+<!-- Main Container Beginning -->			
+			
+<div class="container" id="documenter_content">
+    
+	<div id="documenter-cover">
+	<div class="masthead">
+	    <h1>Transition Slider - jQuery plugin</h1>
+	    <p></p>
+	    <ul class="marketing-byline">
+			<li>created: 03/13/2019</li>
+			<li>latest update: 03/19/2019</li>
+			<li>by: creativeinteractivemedia</li>
+			<li><a href="http://codecanyon.net/user/creativeinteractivemedia">codecanyon.net/user/creativeinteractivemedia</a></li>
+		</ul>
+	    <p class="download-info">
+			
+		</p>
+		
+	</div> <!-- masthead -->
+	
+   <div id="intro">
+    <p class="highlight hero-unit">Thank you for purchasing Transition Slider. If you have any questions that are beyond the scope of this help file, please feel free to email via my profile page contact form here http://codecanyon.net/user/creativeinteractivemedia. Thanks so much!</p>
+   </div> <!-- intro -->
+   
+	</div>
+      
+  <section id="special_notes">
+	<div class="page-header"><h3>Special notes</h3><hr class="notop"></div>
+<h4 id="special_notes_running_things_locally">Running things locally</h4>
+<p>
+	Due to local security restrictions, some things will not work locally, especially in Chrome.&nbsp; But everything will work once the files have been updated to your website. I recommend testing in Firefox as is more lenient toward local iframe security.&nbsp;</p>
+<p>
+	To run locally in Chrome you need to start Google Chrome with local file access&nbsp;</p>
+<ol>
+	<li>
+		close all instances of Chrome</li>
+	<li>
+		click Start</li>
+	<li>
+		type in &quot;run&quot; (without quotes) and hit enter</li>
+	<li>
+		copy paste this line and hit enter:</li>
+</ol>
+<p>
+	chrome --allow-file-access-from-files</p>
+<div>
+	&nbsp;</div>
+<h5>
+	&nbsp;</h5>
+<script>
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</script></section>
+<section id="directories_and_files">
+	<div class="page-header"><h3>Directories and files</h3><hr class="notop"></div>
+<p>	In your <strong>main</strong> downloaded folder<strong>&nbsp;</strong>from CodeCanyon you&#39;ll find the following structure:</p>
+<p>	<strong>deploy </strong>- contains ready to use HTML templates with production (minified) scripts</p>
+<p>	<strong>source </strong>- contains unminified source files</p>
+<script>
+</script><script>
+</script></section>
+<section id="getting_started">
+	<div class="page-header"><h3>Getting started</h3><hr class="notop"></div>
+<h4 id="getting_started_examples">Examples</h4>
+<p class="plain">
+	The best way is to start modifying one of the HTML examples from the <strong>deploy </strong>folder.</p>
+<p class="plain">
+	&nbsp;</p>
+<h4 id="getting_started_dependencies">Dependencies</h4>
+<p class="plain">
+	First step is to include required scripts in your HTML. Transition slider is using external libraries Three.js, TWEEN.js, Swiper and Font-Awesome. For fast loading, dependencies are loaded from CDN</p>
+<pre class="prettyprint lang-js linenums">
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://use.fontawesome.com/releases/v5.7.1/css/all.css&quot; integrity=&quot;sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr&quot; crossorigin=&quot;anonymous&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/swiper.min.css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/transitionSlider.css&quot; /&gt;
+
+&lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot; integrity=&quot;sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.min.js&quot; integrity=&quot;sha256-MLiiWIesl0wBnSFezbrIMF0aFZjuWY3eu/jvVbgRBvE=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.min.js&quot; integrity=&quot;sha256-pkdE3jvAwnyWTuWZ1AEJdS1OeJKCFM6yNcznk/A5sKw=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/swiper.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/transitionSlider.min.js&quot;&gt;&lt;/script&gt;</pre>
+<p class="plain">
+	&nbsp;</p>
+<h4 id="getting_started_plugin_usage">Plugin usage</h4>
+<p class="plain">
+	Call the plugin with an options object as an argument.&nbsp;</p>
+<pre class="prettyprint lang-js linenums">
+$(&quot;#container&quot;).transitionSlider(options)</pre>
+<p>
+	&nbsp;</p>
+<h4 id="getting_started_creating_slider">Creating Slider</h4>
+<p class="plain">
+	Slider options need to have array of slides</p>
+<pre class="prettyprint lang-js linenums">
+$(document).ready(function () {
+  $(&quot;#container&quot;).transitionSlider({
+    slides:[
+      {src:&quot;assets/1.jpg&quot;},
+      {src:&quot;assets/2.jpg&quot;},
+      {src:&quot;assets/3.jpg&quot;}
+    ]
+  })
+})</pre>
+<p class="plain">
+	&nbsp;</p>
+<p class="plain">
+	Full HTML example:</p>
+<pre class="prettyprint lang-js linenums">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot; /&gt;
+        &lt;title&gt;Swiper demo&lt;/title&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1&quot; /&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://use.fontawesome.com/releases/v5.7.1/css/all.css&quot; integrity=&quot;sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr&quot; crossorigin=&quot;anonymous&quot; /&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;css/swiper.min.css&quot; /&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;css/transitionSlider.css&quot; /&gt;
+        &lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot; integrity=&quot;sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.min.js&quot; integrity=&quot;sha256-MLiiWIesl0wBnSFezbrIMF0aFZjuWY3eu/jvVbgRBvE=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.min.js&quot; integrity=&quot;sha256-pkdE3jvAwnyWTuWZ1AEJdS1OeJKCFM6yNcznk/A5sKw=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;js/swiper.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;js/transitionSlider.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script&gt;
+            jQuery(document).ready(function($) {
+                $(&quot;#slider-wrapper&quot;).transitionSlider({
+                    slides: [
+                        { src: &quot;assets/1.jpg&quot; },
+                        { src: &quot;assets/2.jpg&quot; },
+                        { src: &quot;assets/3.jpg&quot; },
+                        { src: &quot;assets/1.mp4&quot; }
+                    ]
+                });
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;slider-wrapper&quot;&gt;&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+</section>
+<section id="general_options">
+	<div class="page-header"><h3>General options</h3><hr class="notop"></div>
+<h4 id="general_options_customizing_slider">Customizing Slider</h4>
+<div>
+	You can customize the slider with various plugin options, for example:</div>
+<div>
+	<pre class="prettyprint lang-js linenums" style="background-image: url(&quot;../../_img/pre_bg.png&quot;);">
+$(document).ready(function () {
+  $(&quot;#container&quot;).transitionSlider({
+    slides:[
+      {src:&quot;assets/1.jpg&quot;},
+      {src:&quot;assets/2.jpg&quot;},
+      {src:&quot;assets/3.jpg&quot;}
+    ],
+    width: 590,
+    height: 290,
+    responsive: false,
+    keyboard: {
+       enabled: true
+    }
+  })
+})</pre>
+</div>
+<p class="plain">
+	&nbsp;</p>
+<p class="plain">
+	Available options are:</p>
+<p class="plain">
+	&nbsp;</p>
+<h4 id="general_options_optionswidth_number">options.width [Number]</h4>
+<div>
+	<p>
+		slider width (if not responsive), used to calculate slider aspect if responsive, default 1000</p>
+	<p>
+		&nbsp;</p>
+	<h4 id="general_options_optionsheight_number">options.height [Number]</h4>
+	<p>
+		slider height (if not responsive), used to calculate slider aspect, default 550</p>
+	<p>
+		&nbsp;</p>
+	<h4 id="general_options_optionsshadow_string">options.shadow [String]</h4>
+	<p>
+		slider shadow effect, available &quot;effect1&quot;,&nbsp;&quot;effect2&quot;,&nbsp;&quot;effect3&quot;,&nbsp;&quot;effect4&quot;,&nbsp;&quot;effect5&quot;,&nbsp;&quot;effect6&quot;</p>
+</div>
+<h5>
+	&nbsp;</h5>
+<h4 id="general_options_optionsresponsive_boolean">options.responsive [Boolean]</h4>
+<p>
+	fit to parent div (100% width of parent div)</p>
+<p>
+	&nbsp;</p>
+<h4 id="general_options_optionstransitioneffect_string">options.transitionEffect [String]</h4>
+<p>
+	global transition effect, can be overridden in each slide, default : &quot;roll&quot;, available : &quot;roll&quot;, &quot;zoom&quot;, &quot;powerzoom&quot;, &quot;warp&quot;, &quot;stretch&quot;, &quot;brightness&quot;</p>
+<p>
+	&nbsp;</p>
+<h4 id="general_options_optionstransitionduration_number">options.transitionDuration [Number]</h4>
+<p>
+	transition duration in ms, default : 1000</p>
+<p>
+	&nbsp;</p>
+<h4 id="general_options_optionsinitialslide_number">options.initialSlide [Number]</h4>
+<p>
+	initial slide number, default : 0</p>
+<p>
+	&nbsp;</p>
+<h4 id="general_options_optionsstoponlastslide_boolean">options.stopOnLastSlide [Boolean]</h4>
+<p>
+	stop on last slide (disables loop), default : false</p>
+<p>
+	&nbsp;</p>
+<h4 id="general_options_optionsautoplay_object">options.autoplay [Object]</h4>
+<p>
+	<span style="color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px;">Object with autoplay parameters, example:</span></p>
+<pre class="prettyprint lang-js linenums">
+{delay : 1000}</pre>
+<h5>
+	autoplay.delay [Number]</h5>
+<p>
+	autoplay delay in ms</p>
+<p>
+	&nbsp;</p>
+<h4 id="general_options_optionspagination_object">options.pagination [Object]</h4>
+<p>
+	example:&nbsp;</p>
+<pre class="prettyprint lang-js linenums">
+{
+  style: &quot;effect2&quot;,
+  dynamicBullets: false,
+  clickable: true
+}</pre>
+<h5>
+	pagination.style [String]</h5>
+<p>
+	pagination style name, available &quot;effect1&quot;,&nbsp;&quot;effect2&quot;,&nbsp;&quot;effect3&quot;,&nbsp;&quot;effect4&quot;,&nbsp;&quot;effect5&quot;</p>
+<h5>
+	pagination.dynamicBullets [Boolean]</h5>
+<p>
+	dynamic bullets, default : true</p>
+<h5>
+	pagination.clickable [Boolean]</h5>
+<p>
+	pagination clickable, default : true</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<h4 id="general_options_optionsnavigation_object">options.navigation [Object]</h4>
+<p>
+	example:&nbsp;</p>
+<pre class="prettyprint lang-js linenums">
+{
+  style: &quot;effect1&quot;
+}</pre>
+<h5>
+	navigation.style [String]</h5>
+<p>
+	navigation style name, available &quot;effect1&quot;,&nbsp;&quot;effect2&quot;,&nbsp;&quot;effect3&quot;,&nbsp;&quot;effect4&quot;,&nbsp;&quot;effect5&quot;,&nbsp;&quot;effect6&quot;,&nbsp;&quot;effect7&quot;,&nbsp;&quot;effect8&quot;,&nbsp;&quot;effect9&quot;,&nbsp;&quot;effect10&quot;</p>
+</section>
+<section id="slide_options">
+	<div class="page-header"><h3>Slide options</h3><hr class="notop"></div>
+<h4 id="slide_options_optionsslides_array">options.slides [Array]</h4>
+<p>	Array of slide objects, example:&nbsp;</p>
+<pre class="prettyprint lang-js linenums">
+[
+  {src:&quot;assets/1.jpg&quot;},
+  {src:&quot;assets/2.jpg&quot;},
+  {src:&quot;assets/1.mp4&quot;},
+...
+]</pre>
+<h5>
+	slide.src [String]</h5>
+<p>	slide image or video URL</p>
+<p>	&nbsp;</p>
+<h3>
+	Optional slide parameters:</h3>
+<h5>
+	slide.transitionEffect [String]</h5>
+<p>	name of transition effect</p>
+<h5>
+	slide.transitionDuration [Number]</h5>
+<p>	transition duration in ms (overrides global transition duration)</p>
+<h5>
+	slide.direction [String]</h5>
+<p>	transition direction, if not set direction it will be random, possible directions are different for each effect</p>
+<h5>
+	slide.brightness [String] or [Number]</h5>
+<p>	transition brightness</p>
+<h5>
+	slide.distance [String] or [Number]</h5>
+<p>	transition distance</p>
+<h5>
+	slide.easing [String]</h5>
+<p>	transition easing</p>
+<p>	&nbsp;</p>
+<p>	All transition parameters can also be set via transitionEffect property, for example&nbsp;</p>
+<pre class="prettyprint lang-js linenums">
+transitionEffect: &quot;roll&quot;
+direction: &quot;right&quot;
+brightness: &quot;fade&quot;</pre>
+<p>	can be shorter written as</p>
+<pre class="prettyprint lang-js linenums">
+transitionEffect: &quot;rollRightFade&quot;
+</pre>
+<p>	&nbsp;</p>
+<p>	Esample of slides array with different transitions&nbsp;</p>
+<pre class="prettyprint lang-js linenums">
+{
+    src: &quot;assets/1.jpg&quot;,
+    transitionEffect: &quot;flash&quot;,
+    direction:&quot;topleft&quot;,
+    distance:&quot;short&quot;,
+    brightness:&quot;flash&quot;,
+    easing:&quot;slow&quot;
+},
+{
+    src: &quot;assets/2.jpg&quot;,
+    transitionEffect: &quot;fade&quot;,
+    direction:&quot;in&quot;,
+    distance:&quot;short&quot;,
+    brightness:&quot;flash&quot;,
+    easing:&quot;slow&quot;
+},
+{
+    src: &quot;assets/3.jpg&quot;,
+    transitionEffect: &quot;flash&quot;,
+    distance:10,
+    brightness:2
+},
+{
+    src: &quot;assets/4.jpg&quot;,
+    transitionEffect: &quot;stretchLeft&quot;,
+    direction:&quot;top&quot;,
+    distance:1,
+    brightness:.3,
+    easing:&quot;elastic&quot;
+},
+{
+    src: &quot;assets/5.jpg&quot;,
+    transitionEffect: &quot;warpFlash&quot;
+},
+{
+    src: &quot;assets/6.jpg&quot;,
+    transitionEffect: &quot;rollFade&quot;
+},
+{
+    src: &quot;assets/7.jpg&quot;,
+    transitionEffect: &quot;stretch&quot;
+},
+{
+    src: &quot;assets/8.jpg&quot;,
+    transitionEffect: &quot;warpSlow&quot;
+},
+{
+    src: &quot;assets/9.jpg&quot;,
+    transitionEffect: &quot;rollElastic&quot;
+}
+</pre>
+<p>	List of all available effects and supported parameters is in the next chapter&nbsp;</p>
+</section>
+<section id="transition_effects">
+	<div class="page-header"><h3>Transition effects</h3><hr class="notop"></div>
+<p>	Transition effect can be set globally and for each slide separately. Each effect can be further customized with optional parameters. If direction parameter is not set, random direction will be used. Available effects are</p>
+<p>	&nbsp;</p>
+<h3>
+	Roll</h3>
+<p>	direction :&nbsp;&quot;top&quot;, &quot;bottom&quot;, &quot;left&quot;, &quot;right&quot;, &quot;topleft&quot;, &quot;topright&quot;, &quot;bottomleft&quot;, &quot;bottomright&quot;</p>
+<p>	brightness : &quot;flash&quot;, &quot;fade&quot; or Number</p>
+<p>	distance : &quot;long&quot;, &quot;short&quot; or Number</p>
+<p>	easing : &quot;slow&quot; or &quot;elastic&quot;</p>
+<p>	&nbsp;</p>
+<h3>
+	Stretch</h3>
+<p>	direction :&nbsp;&quot;top&quot;, &quot;bottom&quot;, &quot;left&quot;, &quot;right&quot;</p>
+<p>	brightness : &quot;flash&quot;, &quot;fade&quot; or Number</p>
+<p>	distance : &quot;long&quot;, &quot;short&quot; or Number</p>
+<p>	easing : &quot;slow&quot; or &quot;elastic&quot;</p>
+<p>	&nbsp;</p>
+<h3>
+	Warp</h3>
+<p>	direction :&nbsp;&quot;top&quot;, &quot;bottom&quot;, &quot;left&quot;, &quot;right&quot;</p>
+<p>	brightness : &quot;flash&quot;, &quot;fade&quot; or Number</p>
+<p>	distance : &quot;long&quot;, &quot;short&quot; or Number</p>
+<p>	easing : &quot;slow&quot; or &quot;elastic&quot;</p>
+<p>	&nbsp;</p>
+<h3>
+	Zoom</h3>
+<p>	direction :&nbsp;&quot;in&quot;, &quot;out&quot;</p>
+<p>	brightness : &quot;flash&quot;, &quot;fade&quot; or Number</p>
+<p>	easing : &quot;slow&quot; or &quot;elastic&quot;</p>
+<p>	&nbsp;</p>
+<h3>
+	Power zoom</h3>
+<p>	direction :&nbsp;&quot;in&quot;, &quot;out&quot;</p>
+<p>	brightness : &quot;flash&quot;, &quot;fade&quot; or Number</p>
+<p>	easing : &quot;slow&quot; or &quot;elastic&quot;</p>
+<p>	&nbsp;</p>
+<h3>
+	Flash</h3>
+<p>	brightness : Number</p>
+<p>	easing : &quot;fast&quot;, &quot;slow&quot; or &quot;elastic&quot;</p>
+<p>	&nbsp;</p>
+<h3>
+	Fade</h3>
+<p>	brightness : Number</p>
+<p>	easing : &quot;fast&quot;, &quot;slow&quot; or &quot;elastic&quot;</p>
+</section>
+<section id="faq">
+	<div class="page-header"><h3>FAQ</h3><hr class="notop"></div>
+<article>
+	<div>
+		<div>
+			<h4 id="faq_can_i_load_images_and_videos_from_another_server_cross_domain_request_">Can I load images and videos from another server (cross domain request)?</h4>
+		</div>
+	</div>
+	<div>
+		<div>
+			<p>				By default images and videos need to be on the same server. To use resources from another domain you need to add Access-Control-Allow-Origin header to server response, for example to allow&nbsp;<a href="http://foo.example/" rel="nofollow">http://foo.example</a>&nbsp;to load the resources you need to add header</p>
+			<pre>
+Access-Control-Allow-Origin: http://foo.example</pre>
+		</div>
+	</div>
+</article>
+<article>
+	<div>
+		<div>
+			<h4 id="faq_slider_is_not_working">Slider is not working</h4>
+		</div>
+	</div>
+	<div>
+		<div>
+			<p>				Please check your browser console for errors. In most cases the problem is that slider has no slides specified, or is trying to load resources from another domain. There might also be javascript errors on the page caused by another plugins that can break the javascript execution on the page</p>
+			<p>				&nbsp;</p>
+		</div>
+	</div>
+</article>
+<article>
+	<div>
+		<div>
+			<h4 id="faq_mixed_content_error_in_browser_console">Mixed content error in browser console</h4>
+		</div>
+	</div>
+	<div>
+		<p>			If you get error that looks like this</p>
+		<pre>
+Mixed Content: The page at &#39;https://www....&#39; was loaded over HTTPS, but requested an insecure XMLHttpRequest endpoint &#39;http://www....&#39;. This request has been blocked; the content must be served over HTTPS.</pre>
+		<p>			that means that your page is serverd over HTTPS so you need to load resources over HTTPS also, so you need to update image and video urls and replace http:// with https://</p>
+	</div>
+</article>
+<p>	&nbsp;</p>
+</section>
+
+
+
+    <hr />
+
+<footer>
+    <p>Copyright creativeinteractivemedia 2019 made with the <a href="http://rxa.li/documenter">Documenter v2.0</a></p>
+</footer>
+
+</div><!-- /container --> 
+
+<!-- Le javascript
+    ================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+<script>document.createElement('section');var duration='500',easing='swing';</script>
+<script src="assets/js/jquery.js"></script> 
+<script src="assets/js/jquery.scrollTo.js"></script>
+<script src="assets/js/jquery.easing.js"></script>
+<script src="assets/js/scripts.js"></script> 
+<script src="assets/js/google-code-prettify/prettify.js"></script> 
+<script src="assets/js/bootstrap-min.js"></script> 
+</body>
+</html>

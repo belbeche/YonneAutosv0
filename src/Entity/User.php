@@ -25,6 +25,12 @@ class User implements UserInterface
      */
     private $email;
 
+    /***
+    * @Assert\Type(type="App\Entity\User")
+    * @Assert\Valid
+    */
+    private $users;
+
     /**
      * @ORM\Column(type="json")
      */
@@ -52,7 +58,11 @@ class User implements UserInterface
     private $prenom;
 
     /**
-     * @ORM\Column(type="bigint", nullable=true)
+     * @ORM\Column(type="bigint", nullable=false)
+     * @Assert\Range(
+     * min = 10,
+     * minMessage = "Le numéro de téléphone doit être valide {{ value }} ",
+     * )
      */
     private $telephone;
 
@@ -62,14 +72,25 @@ class User implements UserInterface
     private $message;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ServicesForm", inversedBy="updateServicesForm")
-     * @ORM\JoinColumn(nullable=false)
-     */
+    * @ORM\ManyToOne(targetEntity="App\Entity\ServicesForm", inversedBy="updateServicesForm")
+    * @ORM\JoinColumn(nullable=false)
+    */
     private $getServicesForm;
  
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getUsers(string $users): ?string
+    {
+        return $this->users;
+    }
+
+    public function setUsers(): self
+    {
+        $this->users = $users;
+        return $this;
     }
 
     public function getEmail(): ?string

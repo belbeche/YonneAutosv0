@@ -2,16 +2,39 @@
 
 {% block body %}
 
-<h1 style="text-align:center;">Recapitulatif de vos informations</h1> 
-
 <div class="container confirmation">
-    <div style="text-align:center;">
-        <p class="lead">{{ user_registred.getServicesForm.DemandeEnLigne }}</p>
-        <p class="lead">{{ user_registred.nom }}</p>
-        <p class="lead">{{ user_registred.prenom }}</p>
-        <p class="lead">{{ user_registred.telephone }}</p>
-        <p class="lead">{{ user_registred.message }}</p>
+    <h1 style="text-align:center;">Recapitulatif de vos informations</h1> 
+
+    <div style="text-align:center;" class="confirm_contact">
+        <p class="lead motif">{{ user_registred.getServicesForm.DemandeEnLigne }}</p>
+        <p class="lead">Nom: {{ user_registred.nom }}</p>
+        <p class="lead">Prenom : {{ user_registred.prenom }}</p>
+        <p class="lead">Telephone: {{ user_registred.telephone }}</p>
+        <p class="lead">Message: {{ user_registred.message }}</p>
+        <div class="container">
+            <a href="#imprim" class="btn btn-primary"> Imprimer le document </a>
+            <a href="#envoyer_email" class="btn btn-info" style="margin-top: 0px;"> Envoyer un e-mail </a>
+        </div>
     </div>
 </div>
+
+<div class="container form_news" style="margin-top: 20px;">
+    <div class="row">
+        <div class="col-md-6 adresse">
+            <h1> Nous situer </h1>
+            <span>Adresse: 58 Av charles de gaules  </br></span>
+            <span>Code postale: 89000 </br></span></br>
+            <span> Telephone : <a href="tel:0667112233"> 06 67 11 22 33</a> </span> </br>
+        </div>
+        <div class="col-md-6">
+            <div class="maps">
+                <!--Google map-->
+                <div class="z-depth-1-half map-container" id="map-container-google-1" style="height: 500px">
+                    <iframe allowfullscreen frameborder="0" height="250" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1339.5611647483074!2d3.585898723087125!3d47.81784687814828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDQ5JzA0LjQiTiAzwrAzNScxMi44IkU!5e0!3m2!1sen!2sfr!4v1554229672132!5m2!1sen!2sfr" style="border:0" width="150"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
 
 {% endblock %}

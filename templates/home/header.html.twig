@@ -2,20 +2,22 @@
 <html>
 <head>
     <meta charset="UTF-8">
-      <title>
+        <title>
           {% block title %}{% endblock %}
-      </title>
-      {% block stylesheets %}
-        {{ encore_entry_link_tags('app') }}
-      <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" rel="stylesheet">
-      <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" media="all" rel="stylesheet">
-      {% endblock %}
+        </title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" rel="stylesheet">
+        <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" media="all" rel="stylesheet">
+        {% endblock %}
 
-      {% block javascript %}
-        <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="http://www.steadness.com/js/jquery.mmenu.all.js"></script>
-      {% endblock %}
+    {% block javascript %}
+        <script src="http://www.steadness.com/jquery.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.min.js" integrity="sha256-MLiiWIesl0wBnSFezbrIMF0aFZjuWY3eu/jvVbgRBvE=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.min.js" integrity="sha256-pkdE3jvAwnyWTuWZ1AEJdS1OeJKCFM6yNcznk/A5sKw=" crossorigin="anonymous"></script>
+    {% endblock %}
 </head>
 
 <div class="mh-head Sticky">
@@ -31,7 +33,7 @@
     <ul id="panel-menu">
         <li>
         <span id="modal" style="display:none;"></span>
-            <a href="/">Accueil</a>
+            <a href="/index/{id}">Accueil</a>
         </li>
         <li>
             <span><a href="#a-propos">A propos</a></span>
@@ -88,12 +90,8 @@
 </nav>
 
 <script>
-$('#modal_link').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
 
-    $(function () {
-
+    $(function() {
         $("#menu").mmenu({
             extensions: [
                 "position-bottom",
@@ -122,11 +120,5 @@ $('#modal_link').on('shown.bs.modal', function () {
             }
         });
         $(".mh-head:not(.mm-sticky)").mhead({scroll: false});
-
-
-        $('body').on('click', 'a[href^="#/"]', function () {
-            alert("Thank you for clicking, but that's a demo link.");
-            return false;
-        });
     });
 </script>

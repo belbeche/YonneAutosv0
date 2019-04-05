@@ -1,47 +1,22 @@
 {% extends 'base.html.Twig' %}
 
 {% block body %}
+<div class="container titre_contact">
+    <h1> Merci d'avoir choisis YonneAutos </h1>
+</br>
+    {{ form_start(contact_add) }}
 
-<h1> N'oubliez pas de vous abonné </h1>
-<p> Des offres promotionnelles sont mis à jours quotidiennement </p>
+    {{ form_row(contact_add.nom) }}
 
-<script> 
-$("#button_contact").click(function(){
-    $("modal").toggle();
-});
-</Script>
+    {{ form_row(contact_add.prenom) }}
 
-<div id="contact"> 
-<br/>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#boite_dialogue" id="button_contact"> Demande en ligne </button>
-        {# Add user #}
-        <div class="modal fade" id="boite_dialogue" tabindex="-1" role="dialog" aria-labelledby="boite_dialogueLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <button class="btn btn-secondary" data-dismiss="modal" type="button">Retour</button>
-            <div class="modal-header">
-                <h5 class="modal-title" id="boite_dialogueLabel">Veuillez renseigner les champs ci-dessous</h5>
-                <p> Les champs marqué par <strong>asterix</strong> sont obligatoires.</p> 
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">Espace Abonnés</span>
-                </button>
-            </div>
-            <div class="modal-body form-group">
-                <span>{{ form_start(contact_add) }}</span>
-                <span> {{ form_row(contact_add.nom) }}</span>
-                <span> {{ form_row(contact_add.prenom) }}</span>
-                <span> {{ form_row(contact_add.telephone) }}</span>
-                <span> {{ form_row(contact_add.message) }}</span>
-            </div>
-            <div class="modal-footer">
-                <span> {{ form_row(contact_add.Sauvgarder) }}</span>
-                <span>{{ form_end(contact_add) }} </span>
-            </div>
-            </div>
-        </div>
-        </div>
-        <a href="#nos-pack" class="btn btn-primary" style="margin-top: 10px;text-align:right;"> Découvrir nos packs </a>
-        <a href="#contact" class="btn btn-info" style="margin-top: 10px;"> Nous contacter </a>
-    </div>
+    {{ form_row(contact_add.telephone) }}
+
+    {{ form_row(contact_add.message) }}
+
+    {{ form_row(contact_add.Sauvgarder) }}
+    
+    {{ form_end(contact_add) }}
+</div>
 
 {% endblock %}

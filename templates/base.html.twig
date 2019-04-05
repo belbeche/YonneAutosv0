@@ -1,5 +1,14 @@
 {% include 'home/header.html.twig' %}
 
-{% block body %}{% endblock %}
+{% block body %}
+
+<div id="add_contact">
+    {{ render(controller(
+        'App\HomeController\getContact',
+        { 'max': 3 }
+    )) }}
+</div>
+
+{% endblock %}
 
 {% include 'home/footer.html.twig' %}

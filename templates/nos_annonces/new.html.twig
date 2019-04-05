@@ -3,9 +3,12 @@
 {% block title %}New NosAnnonces{% endblock %}
 
 {% block body %}
+<div class="container">
     <h1>Crée une nouvelle annonce</h1>
 
     {{ include('nos_annonces/_form.html.twig') }}
 
     <a href="{{ path('nos_annonces_index') }}">Retour</a>
+</div>
 {% endblock %}
+

@@ -18,8 +18,9 @@ Encore
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
-    .addEntry('fonts', './assets/js/fonts.js')
-    
+    .addEntry('transitionSlider', './assets/js/transitionSlider.js')
+    .addEntry('swiper', './assets/js/swiper.min.js')
+
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 
@@ -43,11 +44,24 @@ Encore
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
 
+    // enables @babel/preset-env polyfills
+    .configureBabel(() => {}, {
+        useBuiltIns: 'usage',
+        corejs: 3
+    })
+
     // enables Sass/SCSS support
     //.enableSassLoader()
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
+
+    // uncomment to get integrity="..." attributes on your script & link tags
+    // requires WebpackEncoreBundle 1.4 or higher
+    //.enableIntegrityHashes()
+
+    // uncomment if you're having problems with a jQuery plugin
+    //.autoProvidejQuery()
 
     // uncomment if you use API Platform Admin (composer req api-admin)
     //.enableReactPreset()

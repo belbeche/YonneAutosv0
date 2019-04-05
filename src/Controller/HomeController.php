@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Entity\NosAnnonces;
 use App\Entity\ServicesForm;
 use Symfony\Component\Form\Forms;
+use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Twig\CssInliner\CssInlinerExtension;
 use Symfony\Component\Form\FormTypeInterface;
@@ -13,10 +14,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Validator\Constraints\Time;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -25,6 +26,8 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+
 
 
 class HomeController extends AbstractController
@@ -35,8 +38,10 @@ class HomeController extends AbstractController
     /**
      * Function index : []
      * return objet + METHOD = : RESPONSE 
+     * 
      */
-    public function index(Request $request,$id, EntityManagerInterface $manager){
+    public function index(Request $request,$id, EntityManagerInterface $manager)
+    {
 
         // J'integre mes champs depuis la table user à la table servicesForms
 
@@ -97,10 +102,7 @@ class HomeController extends AbstractController
         $repo = $this->getDoctrine()
             ->getRepository(NosAnnonces::class)
             ->findAll($id);
-                
-        $repo = $this->getDoctrine()
-            ->getRepository(NosAnnonces::class)
-            ->findAll($id);
+
         return $this->render('home/index.html.twig',[
             'form_index' => $form_contact->createView(),
             'annonces_views' => $repo,
@@ -119,9 +121,12 @@ class HomeController extends AbstractController
         $getServicesDetails = $this->getDoctrine()
         ->getRepository(ServicesForm::class)
         ->find($motif_demande);
+
         // j'insere les données de demande en ligne via user:get
         $user_contact = new User();
+
         // j'insere l'id de la table services Form demande en ligne 
+
         $getServicesDetails->addUpdateServicesForm($user_contact);
 
         $user_form = $this->createFormBuilder($user_contact)
@@ -164,14 +169,15 @@ class HomeController extends AbstractController
      *
      * @Route("/contact_confirm/{id}" , name="contact_confirm")
      */
-    public function getContactConfirmation($id){
+    public function getContactConfirmation($id, Request $request)
+    {
         // je récupere mes motifs depuis la table user + id  depuis twig
         $user_registration = $this->getDoctrine()
         ->getRepository(User::class)
         ->find($id);
 
         return $this->render('home/confirmation.html.twig', [
-            'user_registred' => $user_registration,
+            'user_registred' => $user_registration
         ]);
     }
 
@@ -188,6 +194,20 @@ class HomeController extends AbstractController
 
         return $this->render('home/annonces.html.twig',[
             'annonces' => $annonces_show,
+        ]);
+    }
+    /**
+     * Return newsletter
+     *
+     *@Route("/newsletter", name="newsletter")
+     */
+    public function getNewsletter(Request $request,EntityManagerInterface $manager){
+
+        $newsletter = new User();
+
+
+        return $this->render('home/newsletter.html.twig', [
+            'form_news' => $form_news->createView(),
         ]);
     }
 }

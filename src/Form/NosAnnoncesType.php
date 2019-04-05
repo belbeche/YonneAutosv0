@@ -15,7 +15,9 @@ class NosAnnoncesType extends AbstractType
         $builder
             ->add('titre')
             ->add('description')
-            ->add('img', FileType::class)
+            ->add('img', FileType::class, [
+                'label' => 'Merci de choisir votre fichier',
+            ])
             ->add('annee')
             ->add('modele')
             ->add('marque')

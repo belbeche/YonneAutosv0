@@ -1,8 +1,6 @@
 {
     "type": "project",
     "license": "proprietary",
-    "name": "composer loads modules",
-    "description": "composer loads modules",
     "require": {
         "php": "^7.1.3",
         "ext-ctype": "*",
@@ -11,7 +9,6 @@
         "doctrine/doctrine-bundle": "^1.10",
         "sensio/framework-extra-bundle": "^5.2",
         "symfony/apache-pack": "^1.0",
-        "symfony/asset": "4.2.*",
         "symfony/console": "4.2.*",
         "symfony/dotenv": "4.2.*",
         "symfony/flex": "^1.1",
@@ -25,8 +22,10 @@
         "symfony/twig-bundle": "4.2.*",
         "symfony/validator": "4.2.*",
         "symfony/webpack-encore-bundle": "^1.4",
+        "symfony/webpack-encore-pack": "^1.0",
         "symfony/yaml": "4.2.*",
-        "twig/extensions": "^1.5"
+        "twig/extensions": "^1.5",
+        "vich/uploader-bundle": "^1.8"
     },
     "config": {
         "preferred-install": {

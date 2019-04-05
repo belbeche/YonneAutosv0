@@ -9,8 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-
+use App\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
 /**
  * @Route("/nos/annonces")
  */
@@ -27,23 +27,31 @@ class NosAnnoncesController extends AbstractController
     }
 
     /**
+     * A revoir
      * @Route("/new", name="nos_annonces_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request,$img = ''): Response
     {
         $nosAnnonce = new NosAnnonces();
 
-        $repo = dirname('/../../assets/css/images/annonces');
-
         $form = $this->createForm(NosAnnoncesType::class, $nosAnnonce);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $file = $form['img']->getData();
-            $file->move($repo);
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($nosAnnonce);
-            $entityManager->flush();
+
+            // $file = $nosAnnonce->getImg();
+            // $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            // $file->move($this->getParameter('upload_directory'), $fileName);
+            // $nosAnnonce->setImg($fileName);
+
+            // move to the current directory, save $name 
+
+            // J'encode mon image charger 
+           
+            // $entityManager = $this->getDoctrine()->getManager();
+            // $entityManager->persist($nosAnnonce);
+            // $entityManager->flush();
 
             return $this->redirectToRoute('nos_annonces_index');
         }
