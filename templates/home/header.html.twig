@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+        <meta charset="UTF-8">
+        <meta name="keywords" content="Garage Auxerre">
+        <meta name="description" content="Reparations,ventes véhicules legers">
+        <meta name="author" content="Artashes SHAHINYAN">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>
           {% block title %}{% endblock %}
         </title>
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+            <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.common-material.min.css" />
+            <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.material.min.css" />
+            <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.material.mobile.min.css" />
+            <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" rel="stylesheet">
+            <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+            <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" media="all" rel="stylesheet">
+        {% endblock %}
+
+
+        {% block javascript %}
+            <script src="http://www.steadness.com/jquery.js"></script>
+            <script src="http://www.steadness.com/js/jquery.mmenu.all.js"></script>
+        {% endblock %}
 </head>
 
 <div class="mh-head Sticky">
@@ -101,11 +121,11 @@
                 }
             ]
         }, {});
-        $(".mh-head.mm-sticky").mhead({
+        $(".mh-head .Sticky").mhead({
             scroll: {
                 hide: 200
             }
         });
-        $(".mh-head:not(.mm-sticky)").mhead({scroll: false});
+        $(".mh-head:not(.mm-sticky)").mhead({scroll: true});
     });
 </script>

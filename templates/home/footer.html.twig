@@ -1,7 +1,12 @@
         {% block javascript %}
             {{ encore_entry_script_tags('app') }}
-            <script src="http://www.steadness.com/js/jquery.mmenu.all.js"></script>
             <script src="http://steadness.com/js/bootstrap.min.js"></script>
+            <script src="https://polyfill.io/v3/polyfill.min.js" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.min.js" integrity="sha256-MLiiWIesl0wBnSFezbrIMF0aFZjuWY3eu/jvVbgRBvE=" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.min.js" integrity="sha256-pkdE3jvAwnyWTuWZ1AEJdS1OeJKCFM6yNcznk/A5sKw=" crossorigin="anonymous"></script>
+            
+            {{ encore_entry_script_tags('swiper') }}
+            {{ encore_entry_script_tags('transitionSlider') }}
         {% endblock %}
         <div class="container">
     </body>

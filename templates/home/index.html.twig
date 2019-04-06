@@ -3,33 +3,20 @@
 {% block title %}Garage Auxerre 89{% endblock %}
 {% block body %}
 
-{% block stylesheets %}
-    {{ encore_entry_link_tags('app') }}
-    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" rel="stylesheet">
-    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" media="all" rel="stylesheet">
-{% endblock %}
-
 {% block javascript %}
-    <script src="http://www.steadness.com/jquery.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.min.js" integrity="sha256-MLiiWIesl0wBnSFezbrIMF0aFZjuWY3eu/jvVbgRBvE=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.min.js" integrity="sha256-pkdE3jvAwnyWTuWZ1AEJdS1OeJKCFM6yNcznk/A5sKw=" crossorigin="anonymous"></script>
-    {{ encore_entry_script_tags('swiper') }}
-    {{ encore_entry_script_tags('transitionSlider') }}
+<script src="http://www.steadness.com/particles.js"></script>
+<script src="http://www.steadness.com/options-particles.js"></script>
+<script src="https://kendo.cdn.telerik.com/2019.1.220/js/kendo.all.min.js"></script>
 {% endblock %}
-
-
 <script>
     jQuery(document).ready(function($) {
         $("#slider-wrapper").transitionSlider({
             slides: [
-                { src: "1.jpg" },
-                { src: "2.jpg" },
-                { src: "3.jpg" },
-                { src: "4.jpg" }
+                { src: "../../1.jpg" },
+                { src: "../../2.jpg" },
+                { src: "../../3.jpg" },
             ],
-            delay : 1000,
+            delay : 3,
             width: 590,
             height: 213,
             responsive: true,
@@ -37,8 +24,8 @@
                 enabled: true
             },
             pagination: {
-                style: "effect2",
-                dynamicBullets: false,
+                style: "effect5",
+                dynamicBullets: true,
                 clickable: true,
             }
         });
@@ -115,49 +102,88 @@
 <!-- Nos services -->
 <div class="container-fluide" id="nos-services">
     <div class="nos-services" style="text-align:center;margin-left:2px;height:50em;" id="nos-pack">
-        <h1 style="text-align:center;margin-top: 50px;" class="titre_services">Nos packs </h1></br>
         <div class="row nos-pack" style="height:35em;">
             <div class="col-md-4">
-                <h2 class="titre-up"> Simplicité  </h2>
-                <span>Pour une intervention </span>
+                <h1 style="text-align:center;margin-top: 50px;" class="titre_services">Nos packs préviligier </h1></br>
+                <!-- Service BASIC -->
+                <h2 class="titre-up"> BASIC </h2>
+                <span>Demande intervention suite à un défaults techniques</span>
                 <hr>
                 <div class="basic">
-                    <p> Description</p>
-                    <p> Description</p>
-                    <p> Description</p>
-                    <p> Description</p>
-                    <p> Description</p>
-                </div> 
-                <section class="prix"> 40 € </br></section>
-                <a href="#contact" class="btn btn-success" style="margin-top:96px;margin-bottom:10px;">Pack basic</a>
+                    <div class="demo-section k-content">
+                        <div id="list_choice">
+                            <label for="inConstruct" id="titre_choices">Options</label>
+                            <label for="selected">Ajouts</label>
+                            <br />
+                            <select id="inConstruct" >
+                                <option>Batterie</option>
+                                <option>Diagnostic</option>
+                                <option>Echappement</option>
+                                <option>Géométrie</option>
+                                <option>Immatriculation</option>
+                                <option>Suspension</option>
+                                <option>Vidange</option>
+                            </select>
+                            <select id="selected"></select>
+                        </div>
+                    </div>
+                <p> Avec ce pack vous bénicifier d'un service plus d'une promotion  </p>
+                <p> Services optimiser avec le dernier matériels hight tech  </p><br/>
+                <p> Notification SMS + PDF  </p>
+            </div> 
+                <section class="prix btn-btn success"> ECHO $TOTAL = STR </br></section>
+                <a href="#contact" class="btn btn-success" style="margin-top:96px;margin-bottom:10px;">Devis en ligne SERVICES </a>
             </div>
+            <!-- Confort -->
             <div class="col-md-4">
-            <h2 class="titre-up"> Rapidité  </h2>
-            <span> Pour un meilleure service </span>
-            <hr>
-                <div class="confort"> 
-                    <p> Description</p>
-                    <p> Description</p>
-                    <p> Description</p>
-                    <p> Description</p>
-                    <p> Description</p>
-                </div> 
-                <section class="prix"> 40 € </br></section>
-                <a href="#contact" class="btn btn-success" style="margin-top:96px;margin-bottom:10px;">Pack confort</a>
+                <h1 style="text-align:center;margin-top: 50px;" class="titre_services">Nos packs </h1></br>
+                <!-- Service BASIC -->
+                <h2 class="titre-up"> Confort </h2>
+                <span>Demande intervention suite à un défaults matériels </span>
+                <hr>
+                <div class="basic">
+                <p> 
+                    <select class="form-group">
+                        <option value="Voir détails" selected>Pack réparation</option> 
+                        <option value ="Batterie" class="form-control">Batterie</option> 
+                        <option value ="Diagnostic" class="form-control">Diagnostic</option> 
+                        <option value ="Echappement" class="form-control">Echappement</option> 
+                        <option value ="Géométrie" class="form-control">Géométrie</option> 
+                        <option value ="Immatriculation" class="form-control">Immatriculation</option> 
+                        <option value ="Suspension" class="form-control">Suspension</option> 
+                        <option value ="Vidange" class="form-control">Vidange</option> 
+                    </select>
+                </p>
+                <p> Avec ce pack vous bénicifier d'un service  </p>
+                <p> Services optimiser avec des outils à jours </p><br/>
+                <p> +Notification par SMS </p>
+                <a href="#devis"> <p style="margin-top:40px;"> Devis </p></a>
+            </div> 
+                <section class="prix btn-btn success"> 40 € </br></section>
+                <a href="#contact" class="btn btn-success" style="margin-top:96px;margin-bottom:10px;">Bénéficiez de cette offre</a>
             </div>
-            <div class="col-md-4">
-            <h2 class="titre-up"> Efficacité </h2>
-            <span> Assistance 24/7 </span>
-            <hr>
-                <div class="Assistance"> 
-                    <p> Description</p>
-                    <p> Description</p>
-                    <p> Description</p>
-                    <p> Description</p>
-                    <p> Description</p>
-                </div> 
-                <section class="prix"> 40 € </br></section>
-                <a href="#contact" class="btn btn-success" style="margin-top:96px;margin-bottom:10px;">Pack Assistance</a>
+            <!-- -->
+            <div class="col-md-4" style="height=70px;">
+                <h1 style="text-align:center;margin-top: 50px;" class="titre_services">Nos avantages </h1></br>
+                <!-- Service BASIC -->
+                <hr>
+                <div class="basic">
+                    <div id="list-tab" role="tablist">
+                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Services</a>
+                    <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Garanties</a>
+                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Notification</a>
+                    <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Meilleure qualités prix</a>
+                    </div>
+                    <div id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">Services</div>
+                        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">Lorem</div>
+                        <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">Imsup</div>
+                        <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">dOLOR</div>
+                    </div>
+            <a href="#devis"> <p style="margin-top:40px;"> Devis </p></a>
+            </div> 
+                <section class="prix btn-btn success"> 40 € </br></section>
+                <a href="#contact" class="btn btn-success" style="margin-top:96px;margin-bottom:10px;">Bénéficiez de cette offre</a>
             </div>
         </div>
     </div>
@@ -192,6 +218,8 @@
         </div>
     </div>
 </div>
+
+<div id="particles-js"> </div>
 
 <!-- /.Contact -->
 
@@ -306,6 +334,19 @@ Info pratique , conseils d'utilisations et ou de réparations
 </div>
 
 <!-- ./ Footer -->
+
+<script>
+    $(document).ready(function () {
+        $("#inConstruct").kendoListBox({
+            connectWith: "selected",
+            toolbar: {
+                tools: ["moveUp", "moveDown", "transferTo", "transferFrom", "transferAllTo", "transferAllFrom", "remove"]
+            }
+        });
+
+        $("#selected").kendoListBox();
+    });
+</script>
 
 
                                 

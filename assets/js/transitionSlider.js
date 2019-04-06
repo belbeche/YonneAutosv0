@@ -427,8 +427,8 @@ author http://codecanyon.net/user/creativeinteractivemedia/portfolio?ref=creativ
         navigation: {
             style: "effect4"
         },
-        pagination: true,
-        autoplay: true,
+        pagination: false,
+        autoplay: false,
         stopOnLastSlide: false
     };
 })(jQuery, window);
@@ -473,7 +473,7 @@ STX.Transition = function(options) {
      * Building THREE.js scene for slider which will hold all textures and where all the magic is happening.
      */
     self.container = self.options.container;
-    self.renderer = new THREE.WebGLRenderer({ antialias: true });
+    self.renderer = new THREE.WebGLRenderer({ antialias: false });
     self.renderer.setSize(width, height);
     self.renderer.setClearColor("#000000");
     self.isRendering = true;
@@ -859,7 +859,7 @@ STX.Loading = function(options, ev) {
 
     function setLoadingSpinner(spinnerStyle) {
         self.loadingTextSpinner = function loadingText() {
-            var loadingString = "YonneAutos - Garage Auxerre";
+            var loadingString = "LOADING";
             var loadingText = document.createElement("div");
 
             loadingText.className = "stx-loading-text";

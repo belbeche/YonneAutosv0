@@ -18,7 +18,7 @@ Encore
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
-    .addEntry('swiper', './assets/js/swiper.min.js')
+    .addEntry('swiper', './assets/js/swiper.js')
     .addEntry('transitionSlider', './assets/js/transitionSlider.js')
     
 
