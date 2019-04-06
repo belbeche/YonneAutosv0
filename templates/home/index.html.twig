@@ -3,35 +3,49 @@
 {% block title %}Garage Auxerre 89{% endblock %}
 {% block body %}
 
-<script src="https://polyfill.io/v3/polyfill.min.js" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.min.js" integrity="sha256-MLiiWIesl0wBnSFezbrIMF0aFZjuWY3eu/jvVbgRBvE=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.min.js" integrity="sha256-pkdE3jvAwnyWTuWZ1AEJdS1OeJKCFM6yNcznk/A5sKw=" crossorigin="anonymous"></script>
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" media="all" rel="stylesheet">
+{% endblock %}
 
-<div id="slider-wrapper"></div>
+{% block javascript %}
+    <script src="http://www.steadness.com/jquery.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.min.js" integrity="sha256-MLiiWIesl0wBnSFezbrIMF0aFZjuWY3eu/jvVbgRBvE=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.min.js" integrity="sha256-pkdE3jvAwnyWTuWZ1AEJdS1OeJKCFM6yNcznk/A5sKw=" crossorigin="anonymous"></script>
+    {{ encore_entry_script_tags('swiper') }}
+    {{ encore_entry_script_tags('transitionSlider') }}
+{% endblock %}
+
 
 <script>
-    $(document).ready(function($) {
-            $("#slider-wrapper").transitionSlider({
-                slides: [
-                    { src: "assets/1.jpg" },
-                    { src: "assets/2.jpg" },
-                    { src: "assets/3.jpg" }
-                ],
-                delay : 1000,
-                width: 590,
-                height: 213,
-                responsive: true,
-                keyboard: {
-                    enabled: true
-                },
-                pagination: {
-                    style: "effect2",
-                    dynamicBullets: false,
-                    clickable: true,
-                }
-            });
+    jQuery(document).ready(function($) {
+        $("#slider-wrapper").transitionSlider({
+            slides: [
+                { src: "1.jpg" },
+                { src: "2.jpg" },
+                { src: "3.jpg" },
+                { src: "4.jpg" }
+            ],
+            delay : 1000,
+            width: 590,
+            height: 213,
+            responsive: true,
+            keyboard: {
+                enabled: true
+            },
+            pagination: {
+                style: "effect2",
+                dynamicBullets: false,
+                clickable: true,
+            }
         });
+    });
 </script>
+
+<div id="slider-wrapper"></div>
 
 
 

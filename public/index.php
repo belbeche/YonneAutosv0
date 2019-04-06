@@ -1,27 +1,48 @@
 <?php
 
-use App\Kernel;
-use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
 
-require dirname(__DIR__).'/config/bootstrap.php';
+class Kernel
+{
+    // Yonne_App = yonne($1): ['index' ??  '$2'];
 
-if ($_SERVER['APP_DEBUG']) {
-    umask(0000);
+    public $yonne_app;
+    public $trustedProxies;
+    public $request;
 
-    Debug::enable();
+    public function __construct($yonne_app,$trustedProxies){
+        
+        $this->yonne_app = $yonne_app;
+        
+        return $yonne_app;
+    }
+
+    public function getHost(Request $Request,$trustedProxies){
+        
+        $trustedProxies = $trustedProxies;
+        
+        $trustedProxies = $_SERVER['SERVER_NAME']; // 127.0.0.1
+
+        $trustedProxies->handleRequest($request);
+
+        return $trustedProxies;
+    }
+
+    public function setHost($yonne_app,$trustedProxies){
+        $yonne_app = $trustedProxies;
+
+        $yonne_app->getHost('127.0.0.1');
+
+        return $this->trustedProxies;
+    }
 }
 
-if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? $_ENV['TRUSTED_PROXIES'] ?? false) {
-    Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
-}
 
-if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? $_ENV['TRUSTED_HOSTS'] ?? false) {
-    Request::setTrustedHosts([$trustedHosts]);
-}
 
-$kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
-$request = Request::createFromGlobals();
-$response = $kernel->handle($request);
-$response->send();
-$kernel->terminate($request, $response);
+$yonne_app = [];
+$trustedProxies = '';
+$request = [];
+
+$yonne_app = new Kernel($yonne_app,$trustedProxies);
+
+$yonne_app->setHost($yonne_app,$trustedProxies);

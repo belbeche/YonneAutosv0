@@ -17,6 +17,7 @@
         "symfony/http-foundation": "4.2.*",
         "symfony/maker-bundle": "^1.11",
         "symfony/orm-pack": "^1.0",
+        "symfony/requirements-checker": "^1.1",
         "symfony/security-bundle": "4.2.*",
         "symfony/security-csrf": "4.2.*",
         "symfony/twig-bundle": "4.2.*",
@@ -54,7 +55,8 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "requirements-checker": "script"
         },
         "post-install-cmd": [
             "@auto-scripts"

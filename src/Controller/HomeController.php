@@ -38,11 +38,9 @@ class HomeController extends AbstractController
     /**
      * Function index : []
      * return objet + METHOD = : RESPONSE 
-     * 
      */
     public function index(Request $request,$id, EntityManagerInterface $manager)
     {
-
         // J'integre mes champs depuis la table user à la table servicesForms
 
         $contact_add = new ServicesForm();
