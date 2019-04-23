@@ -82,18 +82,102 @@ body {
 }
 
 /* Logo + Nav  */
+
 .navbar-brand{
     font-size: 45px;
     color: white;
 }
-
 .navbar-nav li{
     font-size: 35px;
 }
 
+.histoire_mob{
+    width: 355px;
+}
+
+.nos-pack{
+    padding-top: 0px;
+    padding-right: 0px;
+}
+
+.block{
+    text-align:center;
+}
+
+.block_annonce div{
+    text-align:center;
+}
+
+.block_annonces{
+    /* margin-left: 40px; */
+    margin-top: 20px;
+    margin-left: 41px;
+    width: 90em;
+    margin-left: 70px;
+    /* margin-left:  5px; */
+}
+
+.block_annonces div{
+    width: 50em;
+    height: 250px;
+    background-color: black; 
+}
+
+.adresse{
+    font-size: 30px;
+}
+
+.nos-block h1{
+    text-align:center;
+}
+
+.block_annonces{
+    width: 250px;
+    height: 250px;
+}
+
+.block div{
+    text-align:center;
+}
+
+.block div{
+    text-align: center; 
+}
+
+.block_annonces div{
+    margin-left: 1px;
+}
+
+.block{
+    text-align:center;
+}
+
+.adresse p{
+    margin-top: 1em;
+    font-size: 24px;
+}
+
+.footer{
+    margin-top: 50px;
+}
+
 /* ./Logo */
 
+/* Promo */
+
+.promo{
+    height: 250px; 
+    width: 200px;
+}
+
+/* ./Promo */
+
 /* Boutton header UP */
+
+.adresse{
+    font-size: 16px; 
+    text-align: right;
+}
 
 .list li{
     display: inline-block;
@@ -137,7 +221,6 @@ body {
 
 #button-li .lists-buttons::before{
     content: "";
-    
 }
 
 .navbar-item span {
@@ -173,7 +256,117 @@ body {
 
 /* Body */
 
+.histoire{
+    background-color: lightgray;
+}
 
+.histoire_mob{
+    background-color: black;
+}
+
+.nous_situer{
+    margin-left: 50px;
+    text-align: center; 
+    background-color: lightgray;
+}
+
+.histoire_mob{
+    margin-left: 15em; 
+}
+
+.block_show{
+    margin-left: 20px;
+}
+
+.assistance_off span{
+    display:inline-block;
+    margin-left: 20em;
+    margin-right: -90px;
+}
+
+.card-body{
+    margin-left: 5px;
+}
+/* Services */
+.service{
+    width: 20em;
+}
+
+.promotion{
+    width: 20em;
+}
+
+.newsletter{
+    width: 20em;
+}
+
+/* ./Service */
+
+.assistance{
+    width: 20em;
+    height: 15em;
+    padding-top: 6em;
+    padding-left: 8em; 
+    margin-left: 22px; 
+    background-color: #00000033;
+}
+
+.info-pratique{
+    width: 30em;
+    height: 15em;
+    padding-top: 6em;
+    padding-left: 8em; 
+    margin-left: 22px; 
+    background-color: #00000033;
+}
+
+.block_promo .promo {
+    margin-left: 10px;
+    height: 12em; 
+    width: 15em;
+    padding-top: 5em; 
+    padding-left: 4em; 
+    margin-top: 16px; 
+    background-color: #263238;
+    border: 1px solid black;
+}
+
+.assistance_block{
+    background-color: black; 
+    width: 50em;
+}
+
+
+.block_promo{
+    margin-top: 25px;
+    width: 44em;
+}
+
+.block_div{
+    text-align:center;
+}
+
+.options{
+    width: 40em;
+    height: 50%;
+}
+
+.block_ouverture .mois {
+    width: 14em;
+    font-size: 30px;
+}
+
+.options{
+    width: 350px;
+}
+
+.block_ouverture .mois{
+    width: 6em;
+}
+
+#form_DemandeEnLigne{
+    display: none;
+}
 
 #particles-js{
   width: 100%;
@@ -182,6 +375,7 @@ body {
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
+  text-align:center;
 }
 
 
@@ -246,6 +440,45 @@ div .carousel{
     text-align:right;
 }
 
+.block_ouverture label{
+    display:none;
+}
+
+#form_options option{
+    display:none;
+    height: 50px;
+}
+
+.block_ouverture .submit{
+    display:none;
+}
+
+#form_ouvertures{
+    margin-left: -11em;
+    width: 22em;
+    height: 10em;
+    
+}
+
+#form_ouvertures select{
+    width: 7em;
+    display:inline-block;
+    height: 78px;
+}
+
+div #form_Suivant{
+    display:none;
+}
+
+.block{
+    width: 20px;
+    display:inline-block;
+}
+
+#block_ouverture{
+    width: 20px;
+}
+
 /* ./Body */
 
 
@@ -264,7 +497,7 @@ div .carousel{
 }
 
 .basic{
-    height: 20em;
+    height: 32em;
 }
 .confort{
     height: 20em;
@@ -295,13 +528,7 @@ div .carousel{
     width: 515px;
 }
 
-#list_choice .k-listbox {
-    width: 236px;
-    height: 310px;
-}
-
 #list_choice .k-listbox:first-of-type {
-    width: 270px;
     margin-right: 1px;
 }
 
@@ -389,6 +616,40 @@ div .carousel{
 /* ./ Nos Annonces */
 
 /* Media Query */
+@media only screen and (max-width: 365px) {
+
+    #list_choice{
+        height: 30em;
+    }
+    #list_choice,
+    .k-listbox{
+        height: 31em;
+    }
+    .basic{
+        height: 41em;
+    }
+    .demo-section,
+    .k-content{
+        height:31em;
+    }
+    .block_div{
+        margin-top: 25px;
+        margin-left: 8px;
+    }
+    .div_info{ 
+        padding-bottom: 8em;
+        padding-top: 55px;
+    }
+    .description-entreprise{
+        margin-top: 30px;
+    }
+    .head-title{
+        margin-top: 10em;
+        text-align:center;
+        font-size: 5px;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     #team{
         display:none;

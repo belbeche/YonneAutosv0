@@ -4,9 +4,9 @@
 {% block body %}
 
 {% block javascript %}
-<script src="http://www.steadness.com/particles.js"></script>
-<script src="http://www.steadness.com/options-particles.js"></script>
-<script src="https://kendo.cdn.telerik.com/2019.1.220/js/kendo.all.min.js"></script>
+    <script src="http://www.steadness.com/particles.js"></script>
+    <script src="http://www.steadness.com/options-particles.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2019.1.220/js/kendo.all.min.js"></script>
 {% endblock %}
 <script>
     jQuery(document).ready(function($) {
@@ -35,63 +35,36 @@
 <div id="slider-wrapper"></div>
 
 
+<!-- Body -->
 
 
-<div class="card-header bg-info mb-3 fade-up" data-aos-anchor-placement="center-bottom">
-    <div class="card-body" id="titre_entreprise">
+<div class="card-header bg-info mb-3 container-fluide">
+    <div class="card-body" style="margin-top: -64px;margin-left: -7px;padding-top: 66px;padding-bottom: 58px">
         <div class="head-title">
-            <h4 class="card-title" id="titre-entreprise">Yonne Autos</h4>
-            <p class="card-text description-entreprise">Un professionnalisme sans égales</p>
+            <h4 class="card-title" style="text-align:center;">Yonne Autos</h4>
+            <p class="card-text description-entreprise" style="text-align:center;">Un professionnalisme sans égales</p>
             </br>
-        </div>
-    </div>
-</div>
-
-<div class="card text-white bg-primary mb-3 ms-left" id="a-propos" style="margin-top:-50px;">
-    <div class="container ms-section">
-        <div class="row ms-section">
-            <div class="col-md-6 histoire_mob" style="font-size:25px;">
-                <div class="card-body">
-                    <h4 class="card-title">Notre histoire</h4>
-                    <p class="card-text">Le garage Yonne autos a ouvert ses portes en 2017.
-                        Nous mettons un point d'honneur à respecter les méthodes et procédures a suivre. </p>
-                    <p>Nous vous invitons à découvrir plus en détail toutes nos prestations. Nous vendons des véhicules neufs et d'occasion.</p>  
-                </div>
-            </div>
-            <div class="col-md-6 ms-right" style="margin-top: 45px;">
-                <div class="card border-dark mb-3 adresse_mob" style="font-size:25px;">
-                    <div class="card-header"><i class="fas fa-home">Nous situer</i></div>
-                        <div class="card-body">
-                            <h4 class="card-title">Adresse : 59 Av charles de gaules, 89000</h4>
-                            <p class="card-text">Telephone : 06 67 11 22 33</p>
-                            <div id="contact"> 
-                                <!-- Modal -->
-                                <div class="modal fade" id="boite_dialogue" tabindex="-1" role="dialog" aria-labelledby="boite_dialogueLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="boite_dialogueLabel">Pourquoi nous contactez vous ? </h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body form-group">
-                                        <span>{{ form_start(form_index) }}</span>
-                                        <span> Nos Horaires d'ouverture </span>
-                                        <span> {{ form_widget(form_index.ouvertures)}}</span></br>
-                                        <span> Découvrez nos différents services </span>
-                                        <span>{{ form_widget(form_index.DemandeEnLigne) }} </span>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-                                        <a> {{ form_widget(form_index.Suivant)}} </a>
-                                        <span>{{ form_end(form_index) }} </span>
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="container"> 
+                <div class="row block_annonce" style="color:white;"> 
+                    <div class="col-md-6" style="text-align: left;font-size: 20px;">
+                        <p style="font-size: 45px;">
+                            On vous propose un service de qualité et un accueil personnalisé.</br>
+                            Et entretenir un meilleure échange afin de trouver la solution la plus adapté à vos besoins.<br/>
+                        </p>
+                        <p style="margin-top: 20px;">
+                            Disponible et à l'écoute, notre équipe de professionnels vous offre des conseils personnalisés
+                            pour garantir la durabilité de votre véhicule et votre sécurité.</p></br>
+                        </p> 
+                        <p class="margin-top:  20px;">Besoin de faire la vidange de votre véhicule ?
+                            Nos mécaniciens interviennent sur tous types de véhicules légers.</br><hr> La vidange est importante, car elle contribue au bon fonctionnement de celui-ci. </p></br>
+                    </div><br/>
+                    <div class="col-md-6 adresse">
+                        <p>
+                            Adresse<br/>
+                            59 Av charles de gaulles<br/> 
+                            89000 Auxerre,</br>
+                            Téléphone : 06.67.11.22.33
+                        </p> 
                     </div>
                 </div>
             </div>
@@ -100,92 +73,14 @@
 </div>
 
 <!-- Nos services -->
-<div class="container-fluide" id="nos-services">
-    <div class="nos-services" style="text-align:center;margin-left:2px;height:50em;" id="nos-pack">
-        <div class="row nos-pack" style="height:35em;">
-            <div class="col-md-4">
-                <h1 style="text-align:center;margin-top: 50px;" class="titre_services">Nos packs préviligier </h1></br>
-                <!-- Service BASIC -->
-                <h2 class="titre-up"> BASIC </h2>
-                <span>Demande intervention suite à un défaults techniques</span>
-                <hr>
-                <div class="basic">
-                    <div class="demo-section k-content">
-                        <div id="list_choice">
-                            <label for="inConstruct" id="titre_choices">Options</label>
-                            <label for="selected">Ajouts</label>
-                            <br />
-                            <select id="inConstruct" >
-                                <option>Batterie</option>
-                                <option>Diagnostic</option>
-                                <option>Echappement</option>
-                                <option>Géométrie</option>
-                                <option>Immatriculation</option>
-                                <option>Suspension</option>
-                                <option>Vidange</option>
-                            </select>
-                            <select id="selected"></select>
-                        </div>
-                    </div>
-                <p> Avec ce pack vous bénicifier d'un service plus d'une promotion  </p>
-                <p> Services optimiser avec le dernier matériels hight tech  </p><br/>
-                <p> Notification SMS + PDF  </p>
-            </div> 
-                <section class="prix btn-btn success"> ECHO $TOTAL = STR </br></section>
-                <a href="#contact" class="btn btn-success" style="margin-top:96px;margin-bottom:10px;">Devis en ligne SERVICES </a>
-            </div>
-            <!-- Confort -->
-            <div class="col-md-4">
-                <h1 style="text-align:center;margin-top: 50px;" class="titre_services">Nos packs </h1></br>
-                <!-- Service BASIC -->
-                <h2 class="titre-up"> Confort </h2>
-                <span>Demande intervention suite à un défaults matériels </span>
-                <hr>
-                <div class="basic">
-                <p> 
-                    <select class="form-group">
-                        <option value="Voir détails" selected>Pack réparation</option> 
-                        <option value ="Batterie" class="form-control">Batterie</option> 
-                        <option value ="Diagnostic" class="form-control">Diagnostic</option> 
-                        <option value ="Echappement" class="form-control">Echappement</option> 
-                        <option value ="Géométrie" class="form-control">Géométrie</option> 
-                        <option value ="Immatriculation" class="form-control">Immatriculation</option> 
-                        <option value ="Suspension" class="form-control">Suspension</option> 
-                        <option value ="Vidange" class="form-control">Vidange</option> 
-                    </select>
-                </p>
-                <p> Avec ce pack vous bénicifier d'un service  </p>
-                <p> Services optimiser avec des outils à jours </p><br/>
-                <p> +Notification par SMS </p>
-                <a href="#devis"> <p style="margin-top:40px;"> Devis </p></a>
-            </div> 
-                <section class="prix btn-btn success"> 40 € </br></section>
-                <a href="#contact" class="btn btn-success" style="margin-top:96px;margin-bottom:10px;">Bénéficiez de cette offre</a>
-            </div>
-            <!-- -->
-            <div class="col-md-4" style="height=70px;">
-                <h1 style="text-align:center;margin-top: 50px;" class="titre_services">Nos avantages </h1></br>
-                <!-- Service BASIC -->
-                <hr>
-                <div class="basic">
-                    <div id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Services</a>
-                    <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Garanties</a>
-                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Notification</a>
-                    <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Meilleure qualités prix</a>
-                    </div>
-                    <div id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">Services</div>
-                        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">Lorem</div>
-                        <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">Imsup</div>
-                        <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">dOLOR</div>
-                    </div>
-            <a href="#devis"> <p style="margin-top:40px;"> Devis </p></a>
-            </div> 
-                <section class="prix btn-btn success"> 40 € </br></section>
-                <a href="#contact" class="btn btn-success" style="margin-top:96px;margin-bottom:10px;">Bénéficiez de cette offre</a>
-            </div>
-        </div>
+
+<div class="container-fluide block_div" style="margin-left: 5em;"> 
+    <h1> Nos engagements </h1>
+    <p> Une assistance 24/7 </p>
+    <div class="row block_annonces" style="width: 90em;">
+        <div class="col-md-4"> Test </div>
+        <div class="col-md-4"> Test </div>
+        <div class="col-md-4"> Test </div>
     </div>
 </div>
 
@@ -193,13 +88,13 @@
 
 <!-- Contact -->
 
-<div class="container">
+<div class="container footer" style="margin-top: 10em;">
     <div class="row background_maps">
         <div class="col-md-6 maps_size" style="padding:0;">
             <div class="maps">
             <!--Google map-->
-            <div class="z-depth-1-half map-container" id="map-container-google-1" style="height: 500px">
-                <iframe allowfullscreen frameborder="0" height="250" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1339.5611647483074!2d3.585898723087125!3d47.81784687814828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDQ5JzA0LjQiTiAzwrAzNScxMi44IkU!5e0!3m2!1sen!2sfr!4v1554229672132!5m2!1sen!2sfr" style="border:0" width="150"></iframe>
+            <div class="z-depth-1-half map-container" id="map-container-google-1" style="height: 20em;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1339.543286176797!2d3.58550206738075!3d47.818539830945866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ee4f18e41691e3%3A0xf9e8f038ae1f809e!2s59+Avenue+Charles+de+Gaulle%2C+89000+Auxerre!5e0!3m2!1sen!2sfr!4v1554954775925!5m2!1sen!2sfr" width="600" height="800" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
             <!--Google Maps-->
             </div>
@@ -332,23 +227,6 @@ Info pratique , conseils d'utilisations et ou de réparations
         </div>
     </div>
 </div>
-
-<!-- ./ Footer -->
-
-<script>
-    $(document).ready(function () {
-        $("#inConstruct").kendoListBox({
-            connectWith: "selected",
-            toolbar: {
-                tools: ["moveUp", "moveDown", "transferTo", "transferFrom", "transferAllTo", "transferAllFrom", "remove"]
-            }
-        });
-
-        $("#selected").kendoListBox();
-    });
-</script>
-
-
                                 
 
 {% endblock %}

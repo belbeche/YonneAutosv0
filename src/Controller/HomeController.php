@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Entity\NosAnnonces;
 use App\Entity\ServicesForm;
+use App\Entity\ServicesChoices;
+use App\Form\ServicesChoicesType;
 use Symfony\Component\Form\Forms;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -36,57 +38,43 @@ class HomeController extends AbstractController
     public $getServicesDetails;
 
     /**
+     * 
      * Function index : []
      * return objet + METHOD = : RESPONSE 
      */
     public function index(Request $request,$id, EntityManagerInterface $manager)
     {
-        // J'integre mes champs depuis la table user à la table servicesForms
-
         $contact_add = new ServicesForm();
+        // j'insere l'id a ma col getOptionsShow depuis services form ~ 
 
         $form_contact = $this->createFormBuilder($contact_add)
-                ->add('ouvertures', ChoiceType::class,[
-                    'choices' => [
-                        'Lundi -  ' => true,
-                        'Mardi - ' => true,
-                        'Mercredi - ' => true,
-                        'Jeudi - ' => true,
-                        'Vendredi - ' => true,
-                        'Samedi - ' => true,
-                    ],
-                    'attr' => [
-                        'class' => 'form-control'
-                    ],
-                    'label_attr' => ['class' => 'label_title'],
-                    'label' => 'Horraires D\'ouverture',
-                    'choice_label' => function($value,$choices){
-
-                        if($value <= 6){
-                            return $choices.date('d/m/Y')." - Ouvert";
-                        }else {
-                            return $choices.date('d/m/Y')." - Fermer";
-                        }
-                        return $value;
-                    }
-                ])
-                // Je fait la demande et je renvoi l'id
-                ->add('DemandeEnLigne', ChoiceType::class,[
-                    'choices' => [
-                        'Pour une repration' => 'Basic: services',
-                        'Pre-inscription' => 'Confort: Voir documents',
-                        'Service aprés vente' => 'Assistance: Vous souhaiter être informer'
-                    ],
-                    'attr' => [
-                        'class' => 'form-control'
-                    ],
-                ])
-                ->add('Suivant', SubmitType::class, [
-                    'attr' => [
-                        'class' => 'btn btn-primary',
-                    ]
-                ])
-                ->getForm();
+            ->add('ajouts', ChoiceType::class, [
+                'choices' => [
+                    'Batterie' => 'batterie',
+                    'Diagnostic' => 'Diagnostic',
+                    'Echappement' => 'Echappement',
+                    'Géométrie' => 'Géometrie',
+                    'Immatriculation' => 'Immatriculation',
+                    'Suspension' => 'Suspension',
+                    'Vidange' => 'Vidage',
+                ],
+            ])
+            ->add('DemandeEnLigne', ChoiceType::class,[
+                'choices' => [
+                    'Pour une repration' => 'Basic: services',
+                    'Pre-inscription' => 'Confort: Voir documents',
+                    'Service aprés vente' => 'Assistance: Vous souhaiter être informer',
+                ],
+                'attr' => [
+                    'class' => 'block_ouverture'
+                ],
+            ])
+            ->add('Suivant', SubmitType::class, [
+                'attr' => [
+                    'class' => 'btn btn-primary',
+                ]
+            ])
+            ->getForm();
 
         $form_contact->handleRequest($request);
 
@@ -98,8 +86,8 @@ class HomeController extends AbstractController
         }
 
         $repo = $this->getDoctrine()
-            ->getRepository(NosAnnonces::class)
-            ->findAll($id);
+        ->getRepository(NosAnnonces::class)
+        ->findAll($id);
 
         return $this->render('home/index.html.twig',[
             'form_index' => $form_contact->createView(),

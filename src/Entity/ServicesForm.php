@@ -34,18 +34,8 @@ class ServicesForm
     private $Assistance;
 
     /**
-     * @ORM\Column(type="string", length=30, nullable=true)
-     */
-    private $ouvertures;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $createdAt;
-
-    /**
-     *@ORM\Column(type="string")
-     */
+    *@ORM\Column(type="string")
+    */
     private $DemandeEnLigne;
 
     /**
@@ -59,9 +49,15 @@ class ServicesForm
     private $NosPacks;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="getServicesForm",cascade={"persist"})
-     */
-    private $updateServicesForm;
+    * @ORM\ManyToOne(targetEntity="App\Entity\ServicesChoices", inversedBy="options")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $getOptionsShow;
+
+    /**
+    * @ORM\Column(type="string", length=255, nullable=true)
+    */
+    private $ajouts;
 
     public function __construct()
     {
@@ -105,42 +101,6 @@ class ServicesForm
     public function setAssistance(?string $Assistance): self
     {
         $this->Assistance = $Assistance;
-
-        return $this;
-    }
-
-    public function getOuvertures(): ?string
-    {
-        return $this->ouvertures;
-    }
-
-    public function setOuvertures(?string $ouvertures): self
-    {
-        $this->ouvertures = $ouvertures;
-
-        return $this;
-    }
-
-    public function getOuvertLe(): ?string
-    {
-        return $this->ouvert_le;
-    }
-
-    public function setOuvertLe(?string $ouvert_le): self
-    {
-        $this->ouvert_le = $ouvert_le;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(?\DateTimeInterface $createdAt): self
-    {
-        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -208,6 +168,30 @@ class ServicesForm
                 $updateServicesForm->setGetServicesForm(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getGetOptionsShow(): ?ServicesChoices
+    {
+        return $this->getOptionsShow;
+    }
+
+    public function setGetOptionsShow(?ServicesChoices $getOptionsShow): self
+    {
+        $this->getOptionsShow = $getOptionsShow;
+
+        return $this;
+    }
+
+    public function getAjouts(): ?string
+    {
+        return $this->ajouts;
+    }
+
+    public function setAjouts(?string $ajouts): self
+    {
+        $this->ajouts = $ajouts;
 
         return $this;
     }
